@@ -7,8 +7,9 @@ import { TeamsComponent } from './teams/teams.component';
 import { ManagerComponent } from './manager/manager.component';
 import { HeaderComponent } from './header/header.component';
 import { LeaugeComponent } from './manager/leauge/leauge.component';
-import { TeamListComponent } from './manager/team-list/team-list.component';
+import { TeamListComponent } from './manager/leauge/team-list/team-list.component';
 import { TeamPlayersComponent } from './manager/team-players/team-players.component';
+import { TeamItemComponent } from './manager/leauge/team-list/team-item/team-item.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { TeamPlayersComponent } from './manager/team-players/team-players.compon
     HeaderComponent,
     LeaugeComponent,
     TeamListComponent,
-    TeamPlayersComponent
+    TeamPlayersComponent,
+    TeamItemComponent
   ],
   imports: [
     BrowserModule
