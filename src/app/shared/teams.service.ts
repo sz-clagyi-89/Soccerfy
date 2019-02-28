@@ -1,7 +1,9 @@
 import { TeamModel } from '../teams/team.model';
+import { Subject } from 'rxjs';
 
 
 export class TeamService {
+    teamArrayChanged = new Subject<TeamModel[]>();
 
     teams: TeamModel[] = [
         new TeamModel(
@@ -33,6 +35,11 @@ export class TeamService {
 
     getTeams() {
         return this.teams.slice();
+    }
+
+    addTeam(item: TeamModel) {
+        this.teams.push(item);
+        this.teamArrayChanged.next(this.teams.slice());
     }
 
 }
