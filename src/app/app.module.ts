@@ -17,6 +17,7 @@ import { ManagerComponent } from './manager/manager.component';
 import { ManagerTeamsListComponent } from './manager/manager-teams-list/manager-teams-list.component';
 import { ManagerTeamsItemComponent } from './manager/manager-teams-list/manager-teams-item/manager-teams-item.component';
 import { ManagerTeamsDetailsComponent } from './manager/manager-teams-details/manager-teams-details.component';
+import { TeamService } from './shared/teams.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { ManagerTeamsDetailsComponent } from './manager/manager-teams-details/ma
     FormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ TeamService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,19 @@
-<app-item></app-item>
+<div class="row">
+    <div class="col-md-12">
+        <button class="btn btn-success">Add Team</button>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-md-12">
+        <app-item
+            *ngFor="let team of teams"
+            [teamItem]="team">
+        </app-item>
+    </div>
+</div>
+
+
 
 
 

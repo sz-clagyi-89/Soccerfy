@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { TeamModel } from '../../team.model';
 
 @Component({
   selector: 'app-item',
@@ -6,9 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./item.component.css']
 })
 export class ItemComponent implements OnInit {
-  grids = [
-    'abcd', 'bcde', 'cdef', 'defg', 'abcd', 'bcde', 'cdef', 'defg', 'abcd', 'bcde', 'cdef', 'defg'
-  ];
+  @Input() teamItem: TeamModel;
 
   constructor() { }
 
