@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./item.component.css']
 })
 export class ItemComponent implements OnInit {
+  grids = [
+    'abcd', 'bcde', 'cdef', 'defg', 'abcd', 'bcde', 'cdef', 'defg', 'abcd', 'bcde', 'cdef', 'defg'
+  ];
 
   constructor() { }
 
