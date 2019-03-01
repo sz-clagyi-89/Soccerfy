@@ -29,9 +29,11 @@ export class TeamModel {
     }
 
     countStrength() {
-        if(this.draw !== 0) {
+        if (this.draw !== 0) {
             const pureEndingPerform = (this.victory / this.pureEnding) * 100;
             this.strength = ((this.draw * 50) + pureEndingPerform) / (this.draw + 1);
+        } else if (this.pureEnding === 0 && this.draw === 0) {
+            this.strength = 0;
         } else {
             this.strength = (this.victory / this.pureEnding) * 100;
         }
