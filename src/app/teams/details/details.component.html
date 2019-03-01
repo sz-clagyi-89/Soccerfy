@@ -1,3 +1,44 @@
-<p>
-  details works!
-</p>
+<div class="row">
+  <div class="col-md-12">
+    <img 
+      class="img-responsive" 
+      [src]="teamItem.imagePath" 
+      alt="cover.png" 
+      >
+      <hr>
+    <div class="panel panel-default">
+      <div class="panel-heading">Name</div>
+      <div class="panel-body">
+        <h4> {{ teamItem.name }} </h4>
+      </div>
+      <div class="panel-heading">Leauge</div>
+      <div class="panel-body">
+        <h4> {{ teamItem.leauge }} </h4>
+      </div>
+      <div class="panel-heading">Head Coach</div>
+      <div class="panel-body">
+        <h4> {{ teamItem.headCoach }} </h4>
+      </div>
+    </div>
+    <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Statistics</th>
+            <th scope="col">Victory</th>
+            <th scope="col">Loss</th>
+            <th scope="col">Draw</th>
+            <th scope="col">Strength</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">2019</th>
+            <td>{{ teamItem.victory }}</td>
+            <td>{{ teamItem.loss }}</td>
+            <td>{{ teamItem.draw }}</td>
+            <td>{{ teamItem.strength }}</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+</div>
