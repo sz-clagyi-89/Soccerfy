@@ -22,7 +22,8 @@ export class DetailsComponent implements OnInit {
           this.teamItem = this.teamService.getTeam(+params['id']);
           console.log(this.ID);
           console.log(this.teamItem);
-
+          this.teamItem.countStrength();
+          console.log(this.teamItem.getStrength());
         }
       );
   }

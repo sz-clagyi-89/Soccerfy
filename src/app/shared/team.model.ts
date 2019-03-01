@@ -8,7 +8,7 @@ export class TeamModel {
     public victory: number;
     public loss: number;
     public draw: number;
-    private matches: number;
+    private pureEnding: number;
 
     constructor(logo: string, name: string, leauge: string, headCoach: string, image: string,
                 victory = 0, loss = 0, draw = 0) {
@@ -20,12 +20,21 @@ export class TeamModel {
                     this.victory = victory;
                     this.loss = loss;
                     this.draw = draw;
-                    this.matches = this.victory + this.loss;
+                    this.pureEnding = this.victory + this.loss;
 
+    }
+
+    getStrength() {
+        return this.strength;
     }
 
     countStrength() {
-        this.strength = (this.victory / this.matches) * 100;
-        return this.strength;
+        if(this.draw !== 0) {
+            const pureEndingPerform = (this.victory / this.pureEnding) * 100;
+            this.strength = ((this.draw * 50) + pureEndingPerform) / (this.draw + 1);
+        } else {
+            this.strength = (this.victory / this.pureEnding) * 100;
+        }
     }
 }
+

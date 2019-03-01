@@ -37,7 +37,7 @@
             <th scope="col">Victory</th>
             <th scope="col">Loss</th>
             <th scope="col">Draw</th>
-            <th scope="col">Strength</th>
+            <th scope="col">Seasonal Performance</th>
           </tr>
         </thead>
         <tbody>
@@ -46,7 +46,7 @@
             <td>{{ teamItem.victory }}</td>
             <td>{{ teamItem.loss }}</td>
             <td>{{ teamItem.draw }}</td>
-            <td>{{ teamItem.countStrength() }}</td>
+            <td>{{ teamItem.getStrength() }}%</td>
           </tr>
         </tbody>
       </table>
