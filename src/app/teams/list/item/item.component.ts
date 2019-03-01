@@ -8,10 +8,12 @@ import { TeamModel } from '../../../shared/team.model';
 })
 export class ItemComponent implements OnInit {
   @Input() teamItem: TeamModel;
+  @Input() index: number;
 
   constructor() { }
 
   ngOnInit() {
+    console.log(this.index);
   }
 
 }

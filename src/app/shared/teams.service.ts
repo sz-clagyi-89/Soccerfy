@@ -11,7 +11,7 @@ export class TeamService {
             'Chelsea FC',
             'EFL',
             'Maurizio Sarri',
-            'https://cdn.pixabay.com/photo/2015/04/06/11/55/stadium-709181_960_720.jpg'
+            'https://upload.wikimedia.org/wikipedia/commons/f/f7/Arsenal_2_Chelsea_1_%2834876312101%29.jpg'
             ),
         new TeamModel(
             'https://www.footballtickets2go.com/assets/images/Aberdeen-FC.png',
@@ -25,8 +25,8 @@ export class TeamService {
             'Real Madrid',
             'BBVA',
             'Santiago Solari',
-            'https://upload.wikimedia.org/wikipedia/commons/5/54/Real_Madrid_vs_Bayern_Munich.jpg'            
-        ),
+            'https://upload.wikimedia.org/wikipedia/commons/5/54/Real_Madrid_vs_Bayern_Munich.jpg'
+            ),
         new TeamModel(
             'https://www.footballtickets2go.com/assets/images/Aberdeen-FC.png',
             'Aber FC',
@@ -39,12 +39,16 @@ export class TeamService {
             'Chel FC',
             'EF',
             'Maurizio Sarri',
-            'https://cdn.pixabay.com/photo/2015/04/06/11/55/stadium-709181_960_720.jpg'
+            'https://upload.wikimedia.org/wikipedia/commons/f/f7/Arsenal_2_Chelsea_1_%2834876312101%29.jpg'
         )
     ];
 
     getTeams() {
         return this.teams.slice();
+    }
+
+    getTeam(index: number) {
+        return this.teams[index]
     }
 
     addTeam(item: TeamModel) {

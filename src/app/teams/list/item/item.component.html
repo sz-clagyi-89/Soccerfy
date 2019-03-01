@@ -1,5 +1,9 @@
 <div class="col-md-4">
-  <a href="#" class="thumbnail">
+  <a 
+    [routerLink]="[index]"
+    routerLinkActive="active"
+    class="thumbnail"
+  >
     <img [src]="teamItem.logo" alt="{{ teamItem.name }}">
   </a>
 </div>

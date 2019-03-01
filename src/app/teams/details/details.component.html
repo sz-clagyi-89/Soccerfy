@@ -3,9 +3,19 @@
     <img 
       class="img-responsive" 
       [src]="teamItem.imagePath" 
-      alt="cover.png" 
+      alt="cover.png"
+      style="border-radius: 3px;"
       >
-      <hr>
+    <br>
+    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-default">Edit</button>
+      </div>
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-default">Delete</button>
+      </div>
+    </div>
+    <br>
     <div class="panel panel-default">
       <div class="panel-heading">Name</div>
       <div class="panel-body">

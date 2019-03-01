@@ -7,8 +7,9 @@
 <div class="row">
     <div class="col-md-12">
         <app-item
-            *ngFor="let team of teams"
-            [teamItem]="team">
+            *ngFor="let team of teams; let i = index"
+            [teamItem]="team"
+            [index]="i">
         </app-item>
     </div>
 </div>

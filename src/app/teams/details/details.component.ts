@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TeamModel } from '../../shared/team.model';
+import { ActivatedRoute, Params } from '@angular/router';
+import { TeamService } from 'src/app/shared/teams.service';
 
 @Component({
   selector: 'app-details',
@@ -7,17 +9,22 @@ import { TeamModel } from '../../shared/team.model';
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit {
-  teamItem: TeamModel = new TeamModel(
-    'https://m.blog.hu/ns/nst/image/Henya/Vend%C3%A9gszerz%C5%91/chelsea.jpg',
-    'Chelsea FC',
-    'efl',
-    'Maurizio Sarri',
-    'https://upload.wikimedia.org/wikipedia/commons/c/c0/2016-17_Premier_League_-_Chelsea_v_Swansea_City.jpg'
-    );
+  teamItem: TeamModel;
+  ID: number;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute,
+              private teamService: TeamService) { }
 
   ngOnInit() {
+    this.route.params
+      .subscribe((params: Params) => {
+          this.ID = +params['id'];
+          this.teamItem = this.teamService.getTeam(+params['id']);
+          console.log(this.ID);
+          console.log(this.teamItem);
+
+        }
+      );
   }
 
 }
