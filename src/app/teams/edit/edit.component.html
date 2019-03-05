@@ -1,15 +1,25 @@
 <div class="row">
   <div class="col-md-12 form-group">
-    <form [formGroup]="teamForm">
+    <form [formGroup]="teamForm" (ngSubmit)="onSubmit()">
       <div class="btn-group btn-group-justified" role="group" aria-label="...">
         <div class="btn-group" role="group">
-          <button type="button" class="btn btn-default">Save</button>
+          <button
+            [disabled]="!teamForm.valid" 
+            type="submit" 
+            class="btn btn-default">
+              Save
+        </button>
         </div>
         <div class="btn-group" role="group">
-          <button type="button" class="btn btn-default">Cancel</button>
+          <button 
+            [disabled]="!teamForm.valid" 
+            type="button" 
+            class="btn btn-default">
+              Cancel
+        </button>
         </div>
       </div>
-      <br>
+      <hr>
       <div class="row">
         <div class="col-md-4">
           <label for="logo">Logo</label>
@@ -20,6 +30,7 @@
           <input type="text" class="form-control" formControlName='imagePath'>
         </div>
       </div>
+      <br>
       <div class="row">
         <div class="col-md-4">
           <img [src]="teamInstance.logo" alt="logo" class="img-responsive">
@@ -50,6 +61,7 @@
           <input type="number" class="form-control" formControlName='draw'>
         </div>
       </div>
+      <hr>
       <div class="alert alert-success" role="alert">
         <h3>Strength</h3>
       </div>

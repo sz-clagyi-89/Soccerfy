@@ -9,7 +9,7 @@ export class TeamService {
         new TeamModel(
             'https://m.blog.hu/ns/nst/image/Henya/Vend%C3%A9gszerz%C5%91/chelsea.jpg',
             'Chelsea FC',
-            'EFL',
+            'Premier Leauge',
             'Maurizio Sarri',
             'https://upload.wikimedia.org/wikipedia/commons/f/f7/Arsenal_2_Chelsea_1_%2834876312101%29.jpg',
             5,
@@ -58,16 +58,21 @@ export class TeamService {
         )
     ];
 
-    getTeams() {
+    getTeams(): TeamModel[] {
         return this.teams.slice();
     }
 
-    getTeam(index: number) {
+    getTeam(index: number): TeamModel {
         return this.teams[index];
     }
 
-    addTeam(item: TeamModel) {
+    addTeam(item: TeamModel): void {
         this.teams.push(item);
+        this.teamArrayChanged.next(this.teams.slice());
+    }
+
+    updateTeam(index: number, updatedTeam: TeamModel): void {
+        this.teams[index] = updatedTeam;
         this.teamArrayChanged.next(this.teams.slice());
     }
 
