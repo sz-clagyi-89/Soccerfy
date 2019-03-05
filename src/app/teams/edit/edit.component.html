@@ -1,34 +1,58 @@
 <div class="row">
   <div class="col-md-12 form-group">
-    <form>
-      <label for="imagePath">Image Path</label>
-      <input type="text" class="form-control">
-      <img src="#" alt="preview">
+    <form [formGroup]="teamForm">
+      <div class="btn-group btn-group-justified" role="group" aria-label="...">
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-default">Save</button>
+        </div>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-default">Cancel</button>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-4">
+          <label for="logo">Logo</label>
+          <input type="text" class="form-control" formControlName='logo'>
+        </div>
+        <div class="col-md-8">
+          <label for="imagePath">Image Path</label>
+          <input type="text" class="form-control" formControlName='imagePath'>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <img [src]="teamInstance.logo" alt="logo" class="img-responsive">
+        </div>
+        <div class="col-md-8">
+          <img [src]="teamInstance.imagePath" alt="imagePath" class="img-responsive">
+        </div>
+      </div>
       <br>
       <label for="name">Name</label>
-      <input type="text" class="form-control">
+      <input type="text" class="form-control" formControlName='name'>
       <label for="leauges">Leauge</label>
-      <input type="text" class="form-control">
+      <input type="text" class="form-control" formControlName='leauge'>
       <label for="headCoach">Head coach</label>
-      <input type="text" class="form-control">
+      <input type="text" class="form-control" formControlName='headCoach'>
       <br>
       <div class="row">
         <div class="col-md-4">
           <label for="victory">Victory</label>
-          <input type="number" class="form-control">
+          <input type="number" class="form-control" formControlName='victory'>
         </div>
         <div class="col-md-4">
           <label for="loss">Loss</label>
-          <input type="number" class="form-control">
+          <input type="number" class="form-control" formControlName='loss'>
         </div>
         <div class="col-md-4">
           <label for="draw">draw</label>
-          <input type="number" class="form-control">
+          <input type="number" class="form-control" formControlName='draw'>
         </div>
       </div>
       <div class="alert alert-success" role="alert">
-          <h3>Strength</h3>
-        </div>
+        <h3>Strength</h3>
+      </div>
     </form>
   </div>
 </div>

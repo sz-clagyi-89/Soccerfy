@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TeamModel } from '../../shared/team.model';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { TeamService } from 'src/app/shared/team.service';
 
 @Component({
@@ -13,7 +13,8 @@ export class DetailsComponent implements OnInit {
   ID: number;
 
   constructor(private route: ActivatedRoute,
-              private teamService: TeamService) { }
+              private teamService: TeamService,
+              private router: Router) { }
 
   ngOnInit() {
     this.route.params
@@ -24,6 +25,10 @@ export class DetailsComponent implements OnInit {
           console.log(this.teamItem.getStrength());
         }
       );
+  }
+
+  onNavigateToEdit() {
+    this.router.navigate(['/teams', this.ID, 'edit']);
   }
 
 }
