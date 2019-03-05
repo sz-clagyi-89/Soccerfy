@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TeamModel } from '../../shared/team.model';
 import { ActivatedRoute, Params } from '@angular/router';
-import { TeamService } from 'src/app/shared/teams.service';
+import { TeamService } from 'src/app/shared/team.service';
 
 @Component({
   selector: 'app-details',
@@ -20,8 +20,6 @@ export class DetailsComponent implements OnInit {
       .subscribe((params: Params) => {
           this.ID = +params['id'];
           this.teamItem = this.teamService.getTeam(+params['id']);
-          console.log(this.ID);
-          console.log(this.teamItem);
           this.teamItem.countStrength();
           console.log(this.teamItem.getStrength());
         }

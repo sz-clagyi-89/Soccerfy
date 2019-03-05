@@ -17,7 +17,8 @@ import { ManagerComponent } from './manager/manager.component';
 import { ManagerTeamsListComponent } from './manager/manager-teams-list/manager-teams-list.component';
 import { ManagerTeamsItemComponent } from './manager/manager-teams-list/manager-teams-item/manager-teams-item.component';
 import { ManagerTeamsDetailsComponent } from './manager/manager-teams-details/manager-teams-details.component';
-import { TeamService } from './shared/teams.service';
+import { TeamService } from './shared/team.service';
+import { EditComponent } from './teams/edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { TeamService } from './shared/teams.service';
     ManagerTeamsListComponent,
     ManagerTeamsItemComponent,
     ManagerTeamsDetailsComponent,
+    EditComponent,
   ],
   imports: [
     BrowserModule,

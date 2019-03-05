@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { TeamModel } from '../../shared/team.model';
-import { TeamService } from 'src/app/shared/teams.service';
+import { TeamService } from 'src/app/shared/team.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -20,7 +20,6 @@ export class ListComponent implements OnInit, OnDestroy {
       .subscribe((recipeUpdated) => {
         this.teams = recipeUpdated;
       });
-    console.log(this.teams);
   }
 
   onAddTeam() {
