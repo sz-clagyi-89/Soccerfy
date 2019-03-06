@@ -75,5 +75,4 @@ export class TeamService {
         this.teams[index] = updatedTeam;
         this.teamArrayChanged.next(this.teams.slice());
     }
-
 }

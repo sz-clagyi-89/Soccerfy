@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterContentInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { TeamModel } from '../../shared/team.model';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { TeamService } from 'src/app/shared/team.service';
@@ -13,7 +13,6 @@ export class DetailsComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   teamItem: TeamModel;
   ID: number;
-  performance: number;
 
   constructor(private route: ActivatedRoute,
               private teamService: TeamService,
@@ -24,7 +23,6 @@ export class DetailsComponent implements OnInit, OnDestroy {
       .subscribe((params: Params) => {
           this.ID = +params['id'];
           this.teamItem = this.teamService.getTeam(+params['id']);
-          this.teamItem.countStrength();
         }
       );
   }

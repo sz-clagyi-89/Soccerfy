@@ -39,15 +39,13 @@ export class EditComponent implements OnInit {
       'victory': new FormControl(this.teamInstance.victory, Validators.required),
       'loss': new FormControl(this.teamInstance.loss, Validators.required),
       'draw': new FormControl(this.teamInstance.draw, Validators.required),
-      'strength': new FormControl()
+      'strength': new FormControl(null)
     });
   }
 
   onSubmit() {
     this.teamService.updateTeam(this.id, this.teamForm.value);
     this.onCancelForm();
-    console.log(this.teamForm.value);
-
   }
 
   onCancelForm() {
