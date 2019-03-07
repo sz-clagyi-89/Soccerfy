@@ -19,6 +19,7 @@ import { ManagerTeamsItemComponent } from './manager/manager-teams-list/manager-
 import { ManagerTeamsDetailsComponent } from './manager/manager-teams-details/manager-teams-details.component';
 import { TeamService } from './shared/team.service';
 import { EditComponent } from './teams/edit/edit.component';
+import { ButtonHover } from './shared/button-hover.directive';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { EditComponent } from './teams/edit/edit.component';
     ManagerTeamsItemComponent,
     ManagerTeamsDetailsComponent,
     EditComponent,
+    ButtonHover
   ],
   imports: [
     BrowserModule,
