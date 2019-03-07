@@ -10,6 +10,7 @@ import { EditComponent } from './teams/edit/edit.component';
 const appRoutes: Routes = [
     {path: '', redirectTo: '/teams', pathMatch: 'full'},
     {path: 'teams', component: TeamsComponent, children: [
+        {path: 'new', component: EditComponent},
         {path: ':id', component: DetailsComponent},
         {path: ':id/edit', component: EditComponent}
     ]},

@@ -11,13 +11,11 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit, OnDestroy {
-  editMode: false;
+  editMode = false;
   id: number;
   teamInstance: TeamModel;
   teamForm: FormGroup;
-  countedStrength: number;
   subscription: Subscription;
-  fullPerform: number;
 
   constructor(private route: ActivatedRoute,
               private teamService: TeamService,
@@ -27,53 +25,62 @@ export class EditComponent implements OnInit, OnDestroy {
     this.subscription = this.route.params
       .subscribe((params: Params) => {
         this.id = +params['id'];
+        this.editMode = params['id'] != null;
         this.init();
-        // this.oncRecountStrength();
     });
   }
 
   private init() {
-    this.teamInstance = this.teamService.getTeam(this.id);
+    let imagePath = '';
+    let name = '';
+    let leauge = '';
+    let headCoach = '';
+    let logo = '';
+    let victory = 0;
+    let loss = 0;
+    let draw = 0;
+    let strength = 0;
+
+    if (this.editMode) {
+      const team = this.teamService.getTeam(this.id);
+      imagePath = team.imagePath;
+      name = team.name;
+      leauge = team.leauge;
+      headCoach = team.headCoach;
+      logo = team.logo;
+      victory = team.victory;
+      loss = team.loss;
+      draw = team.draw;
+      strength = team.strength;
+    }
 
     this.teamForm = new FormGroup({
-      'imagePath': new FormControl(this.teamInstance.imagePath, Validators.required),
-      'name': new FormControl(this.teamInstance.name, Validators.required),
-      'leauge': new FormControl(this.teamInstance.leauge, Validators.required),
-      'headCoach': new FormControl(this.teamInstance.headCoach, Validators.required),
-      'logo': new FormControl(this.teamInstance.logo, Validators.required),
-      'victory': new FormControl(this.teamInstance.victory, [Validators.required, Validators.pattern(/^[0-9]+[0-9]*$/)]),
-      'loss': new FormControl(this.teamInstance.loss, [Validators.required, Validators.pattern(/^[0-9]+[0-9]*$/)]),
-      'draw': new FormControl(this.teamInstance.draw, [Validators.required, Validators.pattern(/^[0-9]+[0-9]*$/)]),
-      'strength': new FormControl(null)
+      'imagePath': new FormControl(imagePath, Validators.required),
+      'name': new FormControl(name, Validators.required),
+      'leauge': new FormControl(leauge, Validators.required),
+      'headCoach': new FormControl(headCoach, Validators.required),
+      'logo': new FormControl(logo, Validators.required),
+      'victory': new FormControl(victory, [Validators.required, Validators.pattern(/^[0-9]+[0-9]*$/)]),
+      'loss': new FormControl(loss, [Validators.required, Validators.pattern(/^[0-9]+[0-9]*$/)]),
+      'draw': new FormControl(draw, [Validators.required, Validators.pattern(/^[0-9]+[0-9]*$/)]),
+      'strength': new FormControl(strength)
     });
+
   }
 
   onSubmit() {
-    this.teamService.updateTeam(this.id, this.teamForm.value);
-    // console.log(this.teamInstance.strength);
+    if (this.editMode) {
+      this.teamService.updateTeam(this.id, this.teamForm.value);
+      // console.log(this.teamInstance.strength);
+    } else {
+      this.teamService.addTeam(this.teamForm.value);
+    }
     this.onCancelForm();
   }
 
   onCancelForm() {
     this.router.navigate(['../'], {relativeTo: this.route});
   }
-
-  // oncRecountStrength() {
-  //   if (this.teamForm.value.draw !== 0) {
-  //     const straightPerform = (this.teamForm.value.victory / (this.teamForm.value.victory + this.teamForm.value.loss)) * 100;
-  //     this.teamInstance.strength = ((this.teamForm.value.draw * 50) + straightPerform) / (this.teamForm.value.draw + 1);
-  //     // console.log(this.fullPerform);
-  //     return this.teamInstance.strength;
-  //   } else if (this.teamForm.value.victory === 0 && this.teamForm.value.draw === 0 && this.teamForm.value.loss === 0) {
-  //     this.teamInstance.strength = 0;
-  //       // console.log(this.fullPerform);
-  //       return this.teamInstance.strength;
-  //   } else {
-  //     this.teamInstance.strength = (this.teamForm.value.victory / (this.teamForm.value.victory + this.teamForm.value.loss)) * 100;
-  //     // console.log(this.fullPerform);
-  //     return this.teamInstance.strength;
-  //   }
-  // }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
