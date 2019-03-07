@@ -3,7 +3,7 @@ import { Directive, HostBinding, HostListener } from '@angular/core';
 @Directive({
     selector: '[appButtonHover]'
 })
-export class ButtonHover {
+export class ButtonHoverDirective {
     @HostBinding('class.active') isActive = false;
 
     @HostListener('mouseenter') mouseEnter(eventData: Event) {

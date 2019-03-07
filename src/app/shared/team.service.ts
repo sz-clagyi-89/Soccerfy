@@ -72,20 +72,20 @@ export class TeamService {
     }
 
     updateTeam(index: number, updatedTeam: TeamModel) {
-        if (typeof updatedTeam.countStrength === "undefined") {
-            updatedTeam.countStrength = (): void => {
+        const matches = updatedTeam.victory + updatedTeam.loss + updatedTeam.draw;
+        if (typeof updatedTeam.countStrength === 'undefined') {
+            updatedTeam.countStrength = (): number => {
                 if (updatedTeam.draw !== 0) {
-                    const pureEndingPerform = (updatedTeam.victory / (updatedTeam.victory + updatedTeam.loss)) * 100;
-                    updatedTeam.strength = ((updatedTeam.draw * 50) + pureEndingPerform) / (updatedTeam.draw + 1);
-                    console.log(updatedTeam.strength);
-                } else if (updatedTeam.victory === 0 && updatedTeam.loss && updatedTeam.draw === 0) {
+                    updatedTeam.strength = ((updatedTeam.victory + (0.5 * updatedTeam.draw)) / (matches)) * 100;
+                    return updatedTeam.strength;
+                } else if (matches === 0) {
                     updatedTeam.strength = 0;
-                    console.log(updatedTeam.strength);
+                    return updatedTeam.strength;
                 } else {
-                    updatedTeam.strength = (updatedTeam.victory / (updatedTeam.victory + updatedTeam.loss)) * 100;
-                    console.log(updatedTeam.strength);
+                    updatedTeam.strength = (updatedTeam.victory / matches) * 100;
+                    return updatedTeam.strength;
                 }
-            }
+            };
         }
         this.teams[index] = updatedTeam;
         this.teamArrayChanged.next(this.teams.slice());
