@@ -1,4 +1,4 @@
-import { Directive, Renderer2, ElementRef, HostBinding, HostListener } from '@angular/core';
+import { Directive, HostBinding, HostListener } from '@angular/core';
 
 @Directive({
     selector: '[appButtonHover]'
@@ -6,11 +6,11 @@ import { Directive, Renderer2, ElementRef, HostBinding, HostListener } from '@an
 export class ButtonHover {
     @HostBinding('class.active') isActive = false;
 
-    @HostListener('mouseenter') mouseEnter() {
+    @HostListener('mouseenter') mouseEnter(eventData: Event) {
         this.isActive = true;
     }
 
-    @HostListener('mouseleave') mouseLeave() {
+    @HostListener('mouseleave') mouseLeave(eventData: Event) {
         this.isActive = false;
     }
 }

@@ -28,21 +28,21 @@ export class TeamModel {
     //     return this.strength;
     // }
 
-    // public countStrength(): void {
-    //     if (this.draw !== 0) {
-    //         const pureEndingPerform = (this.victory / this.pureEnding) * 100;
-    //         this.strength = ((this.draw * 50) + pureEndingPerform) / (this.draw + 1);
-    //         // console.log(this.strength);
-    //         // return this.strength;
-    //     } else if (this.pureEnding === 0 && this.draw === 0) {
-    //         this.strength = 0;
-    //         // console.log(this.strength);
-    //         // return this.strength;
-    //     } else {
-    //         this.strength = (this.victory / this.pureEnding) * 100;
-    //         // console.log(this.strength);
-    //         // return this.strength;
-    //     }
-    // }
+    public countStrength(): number {
+        if (this.draw !== 0) {
+            const pureEndingPerform = (this.victory / this.pureEnding) * 100;
+            this.strength = ((this.draw * 50) + pureEndingPerform) / (this.draw + 1);
+            console.log(this.strength);
+            return this.strength;
+        } else if (this.pureEnding === 0 && this.draw === 0) {
+            this.strength = 0;
+            console.log(this.strength);
+            return this.strength;
+        } else {
+            this.strength = (this.victory / this.pureEnding) * 100;
+            console.log(this.strength);
+            return this.strength;
+        }
+    }
 }
 

@@ -24,11 +24,11 @@
       <div class="row">
         <div class="col-md-4">
           <label for="logo">Logo</label>
-          <input type="text" class="form-control" formControlName='logo' #logo>
+          <input id="logo" type="text" class="form-control" formControlName='logo' #logo>
         </div>
         <div class="col-md-8">
           <label for="imagePath">Image Path</label>
-          <input type="text" class="form-control" formControlName='imagePath' #image>
+          <input id="imagePath" type="text" class="form-control" formControlName='imagePath' #image>
         </div>
       </div>
       <br>
@@ -42,30 +42,47 @@
       </div>
       <br>
       <label for="name">Name</label>
-      <input type="text" class="form-control" formControlName='name'>
-      <label for="leauges">Leauge</label>
-      <input type="text" class="form-control" formControlName='leauge'>
+      <input id="name" type="text" class="form-control" formControlName='name'>
+      <label for="leauge">Leauge</label>
+      <input id="leauge" type="text" class="form-control" formControlName='leauge'>
       <label for="headCoach">Head coach</label>
-      <input type="text" class="form-control" formControlName='headCoach'>
+      <input id="headCoach" type="text" class="form-control" formControlName='headCoach'>
       <br>
       <div class="row">
         <div class="col-md-4">
           <label for="victory">Victory</label>
-          <input type="number" class="form-control" formControlName='victory'>
+          <input 
+            id="victory"
+            type="number" 
+            class="form-control" 
+            formControlName='victory'
+            >
         </div>
         <div class="col-md-4">
           <label for="loss">Loss</label>
-          <input type="number" class="form-control" formControlName='loss'>
+          <input 
+            id="loss"
+            type="number" 
+            class="form-control" 
+            formControlName='loss'
+            >
         </div>
         <div class="col-md-4">
           <label for="draw">draw</label>
-          <input type="number" class="form-control" formControlName='draw'>
+          <input 
+            id="draw"
+            type="number" 
+            class="form-control" 
+            formControlName='draw'
+            >
         </div>
       </div>
       <hr>
-      <div class="alert alert-success" role="alert">
-        <h3>Strength</h3>
-      </div>
+      <div class="panel panel-default">
+          <div class="panel-body">
+            <p>{{ teamInstance.strength }}</p>
+          </div>
+        </div>
     </form>
   </div>
 </div>
