@@ -75,4 +75,9 @@ export class TeamService {
         this.teams[index] = updatedTeam;
         this.teamArrayChanged.next(this.teams.slice());
     }
+
+    deleteTeam(index: number) {
+        this.teams.splice(index, 1);
+        this.teamArrayChanged.next(this.teams.slice());
+    }
 }

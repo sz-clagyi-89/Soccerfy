@@ -51,5 +51,4 @@ export class EditComponent implements OnInit {
   onCancelForm() {
     this.router.navigate(['../'], {relativeTo: this.route});
   }
-
 }

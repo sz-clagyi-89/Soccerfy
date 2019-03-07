@@ -31,6 +31,11 @@ export class DetailsComponent implements OnInit, OnDestroy {
     this.router.navigate(['/teams', this.ID, 'edit']);
   }
 
+  onDeleteTeam() {
+    this.teamService.deleteTeam(this.ID);
+    this.router.navigate(['../'], {relativeTo: this.route});
+  }
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
