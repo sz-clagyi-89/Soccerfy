@@ -67,26 +67,13 @@ export class TeamService {
     }
 
     addTeam(item: TeamModel): void {
+        this.countPerformance(item);
         this.teams.push(item);
         this.teamArrayChanged.next(this.teams.slice());
     }
 
-    updateTeam(index: number, updatedTeam: TeamModel) {
-        const matches = updatedTeam.victory + updatedTeam.loss + updatedTeam.draw;
-        if (typeof updatedTeam.countStrength === 'undefined') {
-            updatedTeam.countStrength = (): number => {
-                if (updatedTeam.draw !== 0) {
-                    updatedTeam.strength = ((updatedTeam.victory + (0.5 * updatedTeam.draw)) / (matches)) * 100;
-                    return updatedTeam.strength;
-                } else if (matches === 0) {
-                    updatedTeam.strength = 0;
-                    return updatedTeam.strength;
-                } else {
-                    updatedTeam.strength = (updatedTeam.victory / matches) * 100;
-                    return updatedTeam.strength;
-                }
-            };
-        }
+    updateTeam(index: number, updatedTeam: TeamModel): void {
+        this.countPerformance(updatedTeam);
         this.teams[index] = updatedTeam;
         this.teamArrayChanged.next(this.teams.slice());
     }
@@ -94,5 +81,23 @@ export class TeamService {
     deleteTeam(index: number) {
         this.teams.splice(index, 1);
         this.teamArrayChanged.next(this.teams.slice());
+    }
+
+    countPerformance(teamObj) {
+        const matches = teamObj.victory + teamObj.loss + teamObj.draw;
+        if (typeof teamObj.countStrength === 'undefined') {
+            teamObj.countStrength = (): number => {
+                if (teamObj.draw !== 0) {
+                    teamObj.strength = ((teamObj.victory + (0.5 * teamObj.draw)) / (matches)) * 100;
+                    return teamObj.strength;
+                } else if (matches === 0) {
+                    teamObj.strength = 0;
+                    return teamObj.strength;
+                } else {
+                    teamObj.strength = (teamObj.victory / matches) * 100;
+                    return teamObj.strength;
+                }
+            };
+        }
     }
 }
