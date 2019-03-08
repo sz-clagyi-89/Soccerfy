@@ -2,9 +2,11 @@
   <a 
     [routerLink]="[index]"
     routerLinkActive="active"
+    style="text-decoration: none;"
     class="thumbnail"
   >
     <img [src]="teamItem.logo" alt="{{ teamItem.name }}">
+    <p class="text-center">{{ teamItem.name }}</p>
   </a>
 </div>
 
