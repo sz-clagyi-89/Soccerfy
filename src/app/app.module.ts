@@ -20,6 +20,7 @@ import { ManagerTeamsDetailsComponent } from './manager/manager-teams-details/ma
 import { TeamService } from './shared/team.service';
 import { EditComponent } from './teams/edit/edit.component';
 import { ButtonHoverDirective } from './shared/button-hover.directive';
+import { SelectComponent } from './select/select.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ButtonHoverDirective } from './shared/button-hover.directive';
     ManagerTeamsItemComponent,
     ManagerTeamsDetailsComponent,
     EditComponent,
-    ButtonHoverDirective
+    ButtonHoverDirective,
+    SelectComponent
   ],
   imports: [
     BrowserModule,
