@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { PlayerModel } from 'src/app/shared/player.model';
 
 @Component({
@@ -7,6 +7,7 @@ import { PlayerModel } from 'src/app/shared/player.model';
   styleUrls: ['./player-item.component.css']
 })
 export class PlayerItemComponent implements OnInit {
+  @Input() playerItem: PlayerModel;
 
   constructor() { }
 
