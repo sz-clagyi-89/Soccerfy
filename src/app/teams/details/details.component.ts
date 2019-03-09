@@ -23,7 +23,6 @@ export class DetailsComponent implements OnInit, OnDestroy {
       .subscribe((params: Params) => {
           this.ID = +params['id'];
           this.teamItem = this.teamService.getTeam(+params['id']);
-          console.log(this.teamItem);
           if (typeof this.teamItem.countStrength !== 'undefined') {
             this.teamItem.countStrength();
           }

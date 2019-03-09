@@ -1,6 +1,9 @@
 import { PlayerModel } from './player.model';
+import { Subject } from 'rxjs';
 
 export class PlayerService {
+    playerArrayChanged =  new Subject<PlayerModel[]>();
+
     private players: PlayerModel[] = [
         new PlayerModel(
             'Messi',
@@ -20,5 +23,10 @@ export class PlayerService {
 
     getPlayers() {
         return this.players.slice();
+    }
+
+    addPlayer(item: PlayerModel) {
+        this.players.push(item);
+        this.playerArrayChanged.next(this.players.slice());
     }
 }
