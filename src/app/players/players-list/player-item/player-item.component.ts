@@ -8,6 +8,7 @@ import { PlayerModel } from 'src/app/shared/player.model';
 })
 export class PlayerItemComponent implements OnInit {
   @Input() playerItem: PlayerModel;
+  @Input() index: number;
 
   constructor() { }
 

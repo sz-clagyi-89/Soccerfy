@@ -1,49 +1,43 @@
 <div class="row">
   <div class="col-md-6">
     <img 
-      src="https://upload.wikimedia.org/wikipedia/commons/7/72/Cristiano_Ronaldo_2017.jpg" 
+      [src]="player.imagePath" 
       class="img-responsive" 
       alt="palyer.name"
       style="border-radius: 3px;">
-      <br>
-    <div class="row">
-      <div class="btn-group btn-group-justified" role="group" aria-label="...">
-        <div class="btn-group" role="group">
-          <button type="button" class="btn btn-info">Edit</button>
-        </div>
-        <div class="btn-group" role="group">
-          <button type="button" class="btn btn-danger">Delete</button>
-        </div>
-      </div>
-    </div>
   </div>
   <div class="col-md-6">
     <div class="panel panel-info">
       <div class="panel-heading">Name</div>
       <div class="panel-body">
-        C. Ronaldo
+        {{ player.name }}
       </div>
-    </div>
-    <div class="panel panel-info">
       <div class="panel-heading">Age</div>
       <div class="panel-body">
-        28
+        {{ player.age }}
       </div>
-    </div>
-    <div class="panel panel-info">
       <div class="panel-heading">Nationality</div>
       <div class="panel-body">
-        Portugese
+        {{ player.nationality }}
       </div>
-    </div>
-    <div class="panel panel-info">
       <div class="panel-heading">Team</div>
       <div class="panel-body">
-        Real Madrid
+        {{ player.team }}
       </div>
     </div>
   </div>
 </div>
+<br>
+<div class="row">
+    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-info">Edit</button>
+      </div>
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-warning">Delete</button>
+      </div>
+    </div>
+  </div>
 <hr>
 <div class="row">
   <div class="col-md-12">
@@ -62,12 +56,12 @@
       <tbody>
         <tr>
           <th scope="row">2019</th>
-          <td>95</td>
-          <td>90</td>
-          <td>78</td>
-          <td>12</td>
-          <td>8</td>
-          <td>91</td>
+          <td>{{ player.attack }}</td>
+          <td>{{ player.middle }}</td>
+          <td>{{ player.defense}}</td>
+          <td>{{ player.goals }}</td>
+          <td>{{ player.assistance }}</td>
+          <td>{{ player.strength }}</td>
         </tr>
       </tbody>
     </table>

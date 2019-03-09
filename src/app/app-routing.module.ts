@@ -7,6 +7,7 @@ import { ManagerComponent } from './manager/manager.component';
 import { DetailsComponent } from './teams/details/details.component';
 import { EditComponent } from './teams/edit/edit.component';
 import { SelectComponent } from './select/select.component';
+import { PlayerDetailsComponent } from './players/player-details/player-details.component';
 
 const appRoutes: Routes = [
     {path: '', redirectTo: '/teams', pathMatch: 'full'},
@@ -16,7 +17,9 @@ const appRoutes: Routes = [
         {path: ':id', component: DetailsComponent},
         {path: ':id/edit', component: EditComponent},
     ]},
-    {path: 'players', component: PlayersComponent},
+    {path: 'players', component: PlayersComponent, children: [
+        {path: ':id', component: PlayerDetailsComponent}
+    ]},
     {path: 'manager', component: ManagerComponent},
 ];
 

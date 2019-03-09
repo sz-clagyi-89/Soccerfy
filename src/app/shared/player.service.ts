@@ -25,6 +25,10 @@ export class PlayerService {
         return this.players.slice();
     }
 
+    getPlayer(index: number) {
+        return this.players[index];
+    }
+
     addPlayer(item: PlayerModel) {
         this.players.push(item);
         this.playerArrayChanged.next(this.players.slice());
