@@ -21,6 +21,7 @@ import { TeamService } from './shared/team.service';
 import { EditComponent } from './teams/edit/edit.component';
 import { ButtonHoverDirective } from './shared/button-hover.directive';
 import { SelectComponent } from './select/select.component';
+import { PlayerService } from './shared/player.service';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,7 @@ import { SelectComponent } from './select/select.component';
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [ TeamService ],
+  providers: [ TeamService, PlayerService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PlayerModel } from '../shared/player.model';
 
 @Component({
   selector: 'app-players',
