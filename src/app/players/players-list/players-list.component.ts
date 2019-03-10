@@ -29,6 +29,7 @@ export class PlayersListComponent implements OnInit {
         25,
         'French',
         'Manchaster United',
+        'RM',
         'https://upload.wikimedia.org/wikipedia/commons/1/13/Paul_Pogba_in_2018.jpg'
       )
     );

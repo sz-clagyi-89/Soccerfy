@@ -22,6 +22,8 @@ import { EditComponent } from './teams/edit/edit.component';
 import { ButtonHoverDirective } from './shared/button-hover.directive';
 import { SelectComponent } from './select/select.component';
 import { PlayerService } from './shared/player.service';
+import { PlayerEditComponent } from './players/player-edit/player-edit.component';
+import { DropdownDirective } from './shared/dropdown.directive';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { PlayerService } from './shared/player.service';
     ManagerTeamsDetailsComponent,
     EditComponent,
     ButtonHoverDirective,
-    SelectComponent
+    SelectComponent,
+    PlayerEditComponent,
+    DropdownDirective
   ],
   imports: [
     BrowserModule,

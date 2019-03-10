@@ -5,6 +5,10 @@
       class="img-responsive" 
       alt="palyer.name"
       style="border-radius: 3px;">
+    <ul class="nav nav-stacked">
+      <li role="presentation" class="active"><a (click)="onNavigateToPlayerEdit()">Edit</a></li>
+      <li role="presentation"><a href="#">Delete</a></li>
+    </ul>
   </div>
   <div class="col-md-6">
     <div class="panel panel-info">
@@ -24,10 +28,14 @@
       <div class="panel-body">
         {{ player.team }}
       </div>
+      <div class="panel-heading">Position</div>
+      <div class="panel-body">
+        {{ player.position }}
+      </div>
     </div>
   </div>
 </div>
-<br>
+<!-- <br>
 <div class="row">
     <div class="btn-group btn-group-justified" role="group" aria-label="...">
       <div class="btn-group" role="group">
@@ -37,7 +45,7 @@
         <button type="button" class="btn btn-warning">Delete</button>
       </div>
     </div>
-  </div>
+  </div> -->
 <hr>
 <div class="row">
   <div class="col-md-12">

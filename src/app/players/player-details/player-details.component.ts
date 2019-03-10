@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { PlayerModel } from 'src/app/shared/player.model';
 import { PlayerService } from 'src/app/shared/player.service';
 
@@ -13,7 +13,8 @@ export class PlayerDetailsComponent implements OnInit {
   player: PlayerModel;
 
   constructor(private route: ActivatedRoute,
-              private playerService: PlayerService) { }
+              private playerService: PlayerService,
+              private router: Router) { }
 
   ngOnInit() {
     this.route.params
@@ -21,6 +22,10 @@ export class PlayerDetailsComponent implements OnInit {
         this.ID = +params['id'];
         this. player = this.playerService.getPlayer(this.ID);
       });
+  }
+
+  onNavigateToPlayerEdit() {
+    this.router.navigate(['/players', this.ID, 'edit']);
   }
 
 }

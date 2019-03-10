@@ -10,13 +10,15 @@ export class PlayerService {
             30,
             'Argentinean',
             'Barcelona',
+            'CM',
             'https://upload.wikimedia.org/wikipedia/commons/c/c1/Lionel_Messi_20180626.jpg'
         ),
         new PlayerModel(
             'Ronaldo',
             28,
             'Portugese',
-            'Real Madrid',
+            'Juventus',
+            'CF',
             'https://upload.wikimedia.org/wikipedia/commons/f/fd/Cristiano_Ronaldo_after_2018_UEFA_Champions_League_Final.jpg'
         ),
     ];

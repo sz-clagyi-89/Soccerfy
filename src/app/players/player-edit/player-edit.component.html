@@ -1,0 +1,106 @@
+<div class="row">
+  <div class="col-md-12 form-group">
+    <!-- <form> -->
+      <div class="form-group">
+          <div class="btn-group btn-group-justified" role="group" aria-label="...">
+              <div class="btn-group" role="group">
+                <button
+                  type="submit" 
+                  class="btn btn-info">
+                    Save
+              </button>
+              </div>
+              <div class="btn-group" role="group">
+                <button
+                  type="button" 
+                  class="btn btn-warning">
+                    Cancel
+              </button>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-md-8">
+                <label for="imagePath">Image Path</label>
+                <input id="imagePath" type="text" class="form-control" #image>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-md-8">
+                <img [src]="image.value" alt="imagePath" class="img-responsive">
+              </div>
+            </div>
+            <br>
+            <label for="name">Name</label>
+            <input id="name" type="text" class="form-control">
+            <label for="age">Age</label>
+            <input id="age" type="text" class="form-control">
+            <label for="nationality">Nationality</label>
+            <input id="nationality" type="text" class="form-control">
+            <label for="team">Team</label>
+            <input id="team" type="text" class="form-control">
+            <br>
+      
+            <label for="positions">Positions</label>
+            <select name="positions" id="positions" class="form-control">
+              <option *ngFor="let post of posts" [value]="post.id">
+                {{ post }}
+              </option>
+            </select>
+      
+            <br>
+            <div class="row">
+              <div class="col-md-2">
+                <label for="attack">Attack</label>
+                <input 
+                  id="attack"
+                  type="number" 
+                  class="form-control"
+                  >
+              </div>
+              <div class="col-md-2">
+                <label for="middle">Middle</label>
+                <input 
+                  id="middle"
+                  type="number" 
+                  class="form-control"
+                  >
+              </div>
+              <div class="col-md-2">
+                <label for="defense">Defense</label>
+                <input 
+                  id="defense"
+                  type="number" 
+                  class="form-control"
+                  >
+              </div>
+              <div class="col-md-2">
+                <label for="goals">Goals</label>
+                <input 
+                  id="goals"
+                  type="number" 
+                  class="form-control"
+                  >
+              </div>
+              <div class="col-md-2">
+                <label for="assistance">Assistance</label>
+                <input 
+                  id="assistance"
+                  type="number" 
+                  class="form-control"
+                  >
+              </div>
+              <div class="col-md-2">
+                <label for="strength">Strength</label>
+                <input 
+                  id="strength"
+                  type="number" 
+                  class="form-control" 
+                  >
+              </div>
+            </div>
+      </div>
+    <!-- </form> -->
+  </div>
+</div>
