@@ -13,7 +13,7 @@ export class PlayerModel {
     public strength: number;
 
 
-    constructor(name: string, age: number, nat: string, team: string, position: string, img: string,
+    constructor(img: string, name: string, age: number, nat: string, team: string, position: string,
                 att = 0, mid = 0, def = 0,
                 goals = 0, ass = 0, strength = 100) {
         this.name = name;
@@ -28,6 +28,5 @@ export class PlayerModel {
         this.goals = goals;
         this.assistance = ass;
         this.strength = strength;
-        
     }
 }

@@ -6,20 +6,20 @@ export class PlayerService {
 
     private players: PlayerModel[] = [
         new PlayerModel(
+            'https://upload.wikimedia.org/wikipedia/commons/c/c1/Lionel_Messi_20180626.jpg',
             'Messi',
             30,
             'Argentinean',
             'Barcelona',
-            'CM',
-            'https://upload.wikimedia.org/wikipedia/commons/c/c1/Lionel_Messi_20180626.jpg'
+            'CMF',
         ),
         new PlayerModel(
+            'https://upload.wikimedia.org/wikipedia/commons/f/fd/Cristiano_Ronaldo_after_2018_UEFA_Champions_League_Final.jpg',
             'Ronaldo',
             28,
             'Portugese',
             'Juventus',
             'CF',
-            'https://upload.wikimedia.org/wikipedia/commons/f/fd/Cristiano_Ronaldo_after_2018_UEFA_Champions_League_Final.jpg'
         ),
     ];
 
@@ -33,6 +33,11 @@ export class PlayerService {
 
     addPlayer(item: PlayerModel) {
         this.players.push(item);
+        this.playerArrayChanged.next(this.players.slice());
+    }
+
+    updatePlayer(index: number, updatedPlayer: PlayerModel) {
+        this.players[index] = updatedPlayer;
         this.playerArrayChanged.next(this.players.slice());
     }
 }

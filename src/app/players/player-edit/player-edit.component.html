@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-12 form-group">
-    <!-- <form> -->
+    <form [formGroup]="playerForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
           <div class="btn-group btn-group-justified" role="group" aria-label="...">
               <div class="btn-group" role="group">
@@ -13,7 +13,8 @@
               <div class="btn-group" role="group">
                 <button
                   type="button" 
-                  class="btn btn-warning">
+                  class="btn btn-warning"
+                  (click)="onCancelForm()">
                     Cancel
               </button>
               </div>
@@ -22,7 +23,12 @@
             <div class="row">
               <div class="col-md-8">
                 <label for="imagePath">Image Path</label>
-                <input id="imagePath" type="text" class="form-control" #image>
+                <input 
+                  formControlName="imagePath"
+                  id="imagePath" 
+                  type="text" 
+                  class="form-control" 
+                  #image>
               </div>
             </div>
             <br>
@@ -33,20 +39,26 @@
             </div>
             <br>
             <label for="name">Name</label>
-            <input id="name" type="text" class="form-control">
+            <input formControlName="name" id="name" type="text" class="form-control">
             <label for="age">Age</label>
-            <input id="age" type="text" class="form-control">
+            <input formControlName="age"id="age" type="text" class="form-control">
             <label for="nationality">Nationality</label>
-            <input id="nationality" type="text" class="form-control">
+            <input formControlName="nationality"id="nationality" type="text" class="form-control">
             <label for="team">Team</label>
-            <input id="team" type="text" class="form-control">
+            <input formControlName="team" id="team" type="text" class="form-control">
             <br>
       
             <label for="positions">Positions</label>
-            <select name="positions" id="positions" class="form-control">
-              <option *ngFor="let post of posts" [value]="post.id">
-                {{ post }}
-              </option>
+            <select 
+              id="positions" 
+              class="form-control"
+              formControlName="position"
+              (change)="onSelectPost($event)">
+                <option 
+                  *ngFor="let post of posts" 
+                  [value]="post">
+                    {{ post }}
+                </option>
             </select>
       
             <br>
@@ -54,6 +66,7 @@
               <div class="col-md-2">
                 <label for="attack">Attack</label>
                 <input 
+                  formControlName="attack"
                   id="attack"
                   type="number" 
                   class="form-control"
@@ -62,6 +75,7 @@
               <div class="col-md-2">
                 <label for="middle">Middle</label>
                 <input 
+                  formControlName="middle"
                   id="middle"
                   type="number" 
                   class="form-control"
@@ -70,6 +84,7 @@
               <div class="col-md-2">
                 <label for="defense">Defense</label>
                 <input 
+                  formControlName="defense"
                   id="defense"
                   type="number" 
                   class="form-control"
@@ -78,6 +93,7 @@
               <div class="col-md-2">
                 <label for="goals">Goals</label>
                 <input 
+                  formControlName="goals"
                   id="goals"
                   type="number" 
                   class="form-control"
@@ -86,6 +102,7 @@
               <div class="col-md-2">
                 <label for="assistance">Assistance</label>
                 <input 
+                  formControlName="assistance"
                   id="assistance"
                   type="number" 
                   class="form-control"
@@ -94,13 +111,14 @@
               <div class="col-md-2">
                 <label for="strength">Strength</label>
                 <input 
+                  formControlName="strength"
                   id="strength"
                   type="number" 
-                  class="form-control" 
+                  class="form-control"
                   >
               </div>
             </div>
       </div>
-    <!-- </form> -->
+    </form>
   </div>
 </div>
