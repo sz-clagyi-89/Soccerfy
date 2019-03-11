@@ -4,6 +4,8 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { PlayerService } from 'src/app/shared/player.service';
 import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
+import { TeamService } from 'src/app/shared/team.service';
+import { TeamModel } from 'src/app/shared/team.model';
 
 @Component({
   selector: 'app-player-edit',
@@ -14,6 +16,8 @@ export class PlayerEditComponent implements OnInit, OnDestroy{
   subscription: Subscription;
   editMode = false;
   ID: number;
+  teams: TeamModel[];
+  teamNames: string[];
   playerInstance: PlayerModel;
   playerForm: FormGroup;
   selectedPost: string;
@@ -25,7 +29,8 @@ export class PlayerEditComponent implements OnInit, OnDestroy{
 
   constructor(private route: ActivatedRoute,
               private playerService: PlayerService,
-              private router: Router) { }
+              private router: Router,
+              private teamService: TeamService) { }
 
   ngOnInit() {
     this.subscription = this.route.params
@@ -33,12 +38,19 @@ export class PlayerEditComponent implements OnInit, OnDestroy{
         this.ID = +params['id'];
         this.editMode = params['id'] != null;
         this.initForm();
-        console.log(this.playerInstance);
-        console.log(this.editMode);
       });
+    // this.playerForm.valueChanges
+    //   .subscribe(value => {
+    //     console.log(value);
+    //   });
   }
 
   initForm() {
+    this.teams = this.teamService.getTeams();
+    this.teamNames = this.teams.map((el) => {
+      return el.name;
+    });
+
     let imagePath = '';
     let name = '';
     let age = null;
@@ -51,6 +63,7 @@ export class PlayerEditComponent implements OnInit, OnDestroy{
     let goals = null;
     let assistance = null;
     let strength = null;
+    // let id = null;
 
     if (this.editMode) {
       // this.position = this.posts.find(el => {
@@ -59,12 +72,13 @@ export class PlayerEditComponent implements OnInit, OnDestroy{
       // console.log(this.position);
       this.playerInstance = this.playerService.getPlayer(this.ID);
       const defaultPost = this.playerInstance.position;
+      const defaultTeam = this.playerInstance.team;
 
       imagePath = this.playerInstance.imagePath;
       name = this.playerInstance.name;
       age = this.playerInstance.age;
       nationality = this.playerInstance.nationality;
-      team = this.playerInstance.team;
+      team = defaultTeam;
       position = defaultPost;
       attack = this.playerInstance.attack;
       middle = this.playerInstance.middle;
@@ -72,6 +86,7 @@ export class PlayerEditComponent implements OnInit, OnDestroy{
       goals = this.playerInstance.goals;
       assistance = this.playerInstance.assistance;
       strength = this.playerInstance.strength;
+      // id = this.playerInstance.id;
     }
 
     this.playerForm = new FormGroup({
@@ -87,16 +102,18 @@ export class PlayerEditComponent implements OnInit, OnDestroy{
       'goals': new FormControl(goals, Validators.required),
       'assistance': new FormControl(assistance, Validators.required),
       'strength': new FormControl(strength, Validators.required),
+      // 'id': new FormControl({value: id, disabled: true})
     });
   }
 
   onSubmit() {
-    console.log(this.playerForm.value.position);
     console.log(this.playerForm.value);
     if (this.editMode) {
+      // this.teamService.updatePlayerInTeam(this.playerForm.value.team, this.playerForm.value);
       this.playerService.updatePlayer(this.ID, this.playerForm.value);
       this.onCancelForm();
     } else {
+      this.teamService.addPlayerToTeam(this.playerForm.value.team, this.playerForm.value);
       this.playerService.addPlayer(this.playerForm.value);
       this.onCancelForm();
     }
@@ -104,11 +121,6 @@ export class PlayerEditComponent implements OnInit, OnDestroy{
 
   onCancelForm() {
     this.router.navigate(['../'], {relativeTo: this.route});
-  }
-
-  onSelectPost(event: any) {
-    this.selectedPost = event.target.value;
-    console.log(this.selectedPost);
   }
 
   ngOnDestroy() {

@@ -48,22 +48,33 @@
           <input formControlName="age"id="age" type="text" class="form-control">
           <label for="nationality">Nationality</label>
           <input formControlName="nationality"id="nationality" type="text" class="form-control">
-          <label for="team">Team</label>
-          <input formControlName="team" id="team" type="text" class="form-control">
+          <!-- <label for="team">Team</label>
+          <input formControlName="team" id="team" type="text" class="form-control"> -->
           <br>
+          <label for="teams">Teams</label>
+          <select 
+            id="teams" 
+            class="form-control"
+            formControlName="team"
+            >
+              <option 
+                *ngFor="let teamName of teamNames" 
+                [value]="teamName">
+                  {{ teamName }}
+              </option>
+          </select>
           <label for="positions">Positions</label>
           <select 
             id="positions" 
             class="form-control"
             formControlName="position"
-            (change)="onSelectPost($event)">
+            >
               <option 
                 *ngFor="let post of posts" 
                 [value]="post">
                   {{ post }}
               </option>
           </select>
-      
             <br>
             <div class="row">
               <div class="col-md-2">

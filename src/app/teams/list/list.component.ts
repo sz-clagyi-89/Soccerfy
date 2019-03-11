@@ -20,8 +20,8 @@ export class ListComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.teams = this.teamService.getTeams();
     this.subscription = this.teamService.teamArrayChanged
-      .subscribe((recipeUpdated) => {
-        this.teams = recipeUpdated;
+      .subscribe((teamsUpdated) => {
+        this.teams = teamsUpdated;
       });
   }
 

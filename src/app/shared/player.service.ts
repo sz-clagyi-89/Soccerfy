@@ -1,8 +1,13 @@
 import { PlayerModel } from './player.model';
 import { Subject } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { TeamService } from './team.service';
 
+@Injectable()
 export class PlayerService {
     playerArrayChanged =  new Subject<PlayerModel[]>();
+
+    constructor(private teamService: TeamService) { }
 
     private players: PlayerModel[] = [
         new PlayerModel(
@@ -10,7 +15,7 @@ export class PlayerService {
             'Messi',
             30,
             'Argentinean',
-            'Barcelona',
+            'Chelsea FC',
             'CMF',
         ),
         new PlayerModel(
@@ -18,7 +23,7 @@ export class PlayerService {
             'Ronaldo',
             28,
             'Portugese',
-            'Juventus',
+            'Juventus FC',
             'CF',
         ),
     ];
@@ -34,15 +39,22 @@ export class PlayerService {
     addPlayer(item: PlayerModel) {
         this.players.push(item);
         this.playerArrayChanged.next(this.players.slice());
+        // add it into teamservice player array
     }
 
     updatePlayer(index: number, updatedPlayer: PlayerModel) {
+        updatedPlayer.id = this.players[index].id;
         this.players[index] = updatedPlayer;
         this.playerArrayChanged.next(this.players.slice());
+
+        
+        // update player in teamservice player array
+        // remove it from the prev. teamservice
     }
 
     deletePlayer(index: number) {
         this.players.splice(index, 1);
         this.playerArrayChanged.next(this.players.slice());
+        // delete player from team array
     }
 }

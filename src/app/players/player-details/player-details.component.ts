@@ -22,6 +22,7 @@ export class PlayerDetailsComponent implements OnInit {
         this.ID = +params['id'];
         this. player = this.playerService.getPlayer(this.ID);
       });
+    console.log(this.player.id);
   }
 
   onNavigateToPlayerEdit() {

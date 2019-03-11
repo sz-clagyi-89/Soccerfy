@@ -71,7 +71,6 @@ export class EditComponent implements OnInit, OnDestroy {
   onSubmit() {
     if (this.editMode) {
       this.teamService.updateTeam(this.id, this.teamForm.value);
-      // console.log(this.teamInstance.strength);
     } else {
       this.teamService.addTeam(this.teamForm.value);
     }

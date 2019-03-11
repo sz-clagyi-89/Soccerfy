@@ -1,3 +1,5 @@
+import { PlayerModel } from './player.model';
+
 export class TeamModel {
     public logo: string;
     public name: string;
@@ -9,9 +11,10 @@ export class TeamModel {
     public loss: number;
     public draw: number;
     private matches: number;
+    public players: PlayerModel[] = [];
 
     constructor(logo: string, name: string, leauge: string, headCoach: string, image: string,
-                victory = 0, loss = 0, draw = 0) {
+                victory = 0, loss = 0, draw = 0, players: PlayerModel[]) {
                     this.logo = logo;
                     this.name = name;
                     this.leauge = leauge;
@@ -21,25 +24,19 @@ export class TeamModel {
                     this.loss = loss;
                     this.draw = draw;
                     this.matches = this.victory + this.loss + this.draw;
+                    this.players = players;
 
     }
-
-    // public getStrength() {
-    //     return this.strength;
-    // }
 
     public countStrength(): number {
         if (this.draw !== 0) {
             this.strength = ((this.victory + (0.5 * this.draw)) / this.matches) * 100;
-            console.log(this.strength);
             return this.strength;
         } else if (this.matches === 0) {
             this.strength = 0;
-            console.log(this.strength);
             return this.strength;
         } else {
             this.strength = (this.victory / this.matches) * 100;
-            console.log(this.strength);
             return this.strength;
         }
     }
