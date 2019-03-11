@@ -40,4 +40,9 @@ export class PlayerService {
         this.players[index] = updatedPlayer;
         this.playerArrayChanged.next(this.players.slice());
     }
+
+    deletePlayer(index: number) {
+        this.players.splice(index, 1);
+        this.playerArrayChanged.next(this.players.slice());
+    }
 }

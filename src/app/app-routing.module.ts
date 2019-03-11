@@ -19,6 +19,7 @@ const appRoutes: Routes = [
         {path: ':id/edit', component: EditComponent},
     ]},
     {path: 'players', component: PlayersComponent, children: [
+        {path: '', component: SelectComponent},
         {path: 'new', component: PlayerEditComponent},
         {path: ':id', component: PlayerDetailsComponent},
         {path: ':id/edit', component: PlayerEditComponent},

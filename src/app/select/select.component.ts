@@ -7,12 +7,10 @@ import { ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./select.component.css']
 })
 export class SelectComponent implements OnInit {
-  featureItem: string;
+  featureItem: any;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
   }
-
-
 }

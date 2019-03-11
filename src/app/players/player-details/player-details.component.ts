@@ -28,4 +28,9 @@ export class PlayerDetailsComponent implements OnInit {
     this.router.navigate(['/players', this.ID, 'edit']);
   }
 
+  onDeletePlayer() {
+    this.playerService.deletePlayer(this.ID);
+    this.router.navigate(['../'], {relativeTo: this.route});
+  }
+
 }

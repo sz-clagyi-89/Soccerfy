@@ -19,6 +19,9 @@
         </button>
         </div>
       </div>
+      <span *ngIf="!teamForm.valid && teamForm.touched" class="help-block">
+        Invalid Form!
+      </span>
       <hr>
       <div class="row">
         <div class="col-md-4">

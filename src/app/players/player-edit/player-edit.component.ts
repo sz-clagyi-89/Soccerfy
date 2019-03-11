@@ -3,7 +3,7 @@ import { PlayerModel } from 'src/app/shared/player.model';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { PlayerService } from 'src/app/shared/player.service';
-import { NgForm, FormGroup, FormControl } from '@angular/forms';
+import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-player-edit',
@@ -75,18 +75,18 @@ export class PlayerEditComponent implements OnInit, OnDestroy{
     }
 
     this.playerForm = new FormGroup({
-      'imagePath': new FormControl(imagePath),
-      'name': new FormControl(name),
-      'age': new FormControl(age),
-      'nationality': new FormControl(nationality),
-      'team': new FormControl(team),
-      'position': new FormControl(position),
-      'attack': new FormControl(attack),
-      'middle': new FormControl(middle),
-      'defense': new FormControl(defense),
-      'goals': new FormControl(goals),
-      'assistance': new FormControl(assistance),
-      'strength': new FormControl(strength),
+      'imagePath': new FormControl(imagePath, Validators.required),
+      'name': new FormControl(name, Validators.required),
+      'age': new FormControl(age, Validators.required),
+      'nationality': new FormControl(nationality, Validators.required),
+      'team': new FormControl(team, Validators.required),
+      'position': new FormControl(position, Validators.required),
+      'attack': new FormControl(attack, Validators.required),
+      'middle': new FormControl(middle, Validators.required),
+      'defense': new FormControl(defense, Validators.required),
+      'goals': new FormControl(goals, Validators.required),
+      'assistance': new FormControl(assistance, Validators.required),
+      'strength': new FormControl(strength, Validators.required),
     });
   }
 
