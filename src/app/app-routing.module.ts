@@ -19,8 +19,9 @@ const appRoutes: Routes = [
         {path: ':id/edit', component: EditComponent},
     ]},
     {path: 'players', component: PlayersComponent, children: [
+        {path: 'new', component: PlayerEditComponent},
         {path: ':id', component: PlayerDetailsComponent},
-        {path: ':id/edit', component: PlayerEditComponent}
+        {path: ':id/edit', component: PlayerEditComponent},
     ]},
     {path: 'manager', component: ManagerComponent},
 ];

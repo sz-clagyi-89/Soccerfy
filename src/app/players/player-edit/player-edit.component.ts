@@ -31,8 +31,7 @@ export class PlayerEditComponent implements OnInit, OnDestroy{
     this.subscription = this.route.params
       .subscribe((params: Params) => {
         this.ID = +params['id'];
-        this.editMode = +params['id'] != null;
-        this.playerInstance = this.playerService.getPlayer(+params['id']);
+        this.editMode = params['id'] != null;
         this.initForm();
         console.log(this.playerInstance);
         console.log(this.editMode);
@@ -58,20 +57,21 @@ export class PlayerEditComponent implements OnInit, OnDestroy{
       //   return el === this.playerInstance.position;
       // });
       // console.log(this.position);
+      this.playerInstance = this.playerService.getPlayer(this.ID);
       const defaultPost = this.playerInstance.position;
 
-        imagePath = this.playerInstance.imagePath;
-        name = this.playerInstance.name;
-        age = this.playerInstance.age;
-        nationality = this.playerInstance.nationality;
-        team = this.playerInstance.team;
-        position = defaultPost;
-        attack = this.playerInstance.attack;
-        middle = this.playerInstance.middle;
-        defense = this.playerInstance.defense;
-        goals = this.playerInstance.goals;
-        assistance = this.playerInstance.assistance;
-        strength = this.playerInstance.strength;
+      imagePath = this.playerInstance.imagePath;
+      name = this.playerInstance.name;
+      age = this.playerInstance.age;
+      nationality = this.playerInstance.nationality;
+      team = this.playerInstance.team;
+      position = defaultPost;
+      attack = this.playerInstance.attack;
+      middle = this.playerInstance.middle;
+      defense = this.playerInstance.defense;
+      goals = this.playerInstance.goals;
+      assistance = this.playerInstance.assistance;
+      strength = this.playerInstance.strength;
     }
 
     this.playerForm = new FormGroup({
@@ -93,8 +93,13 @@ export class PlayerEditComponent implements OnInit, OnDestroy{
   onSubmit() {
     console.log(this.playerForm.value.position);
     console.log(this.playerForm.value);
-    this.playerService.updatePlayer(this.ID, this.playerForm.value);
-    this.onCancelForm();
+    if (this.editMode) {
+      this.playerService.updatePlayer(this.ID, this.playerForm.value);
+      this.onCancelForm();
+    } else {
+      this.playerService.addPlayer(this.playerForm.value);
+      this.onCancelForm();
+    }
   }
 
   onCancelForm() {

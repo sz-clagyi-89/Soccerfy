@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PlayerService } from 'src/app/shared/player.service';
 import { PlayerModel } from 'src/app/shared/player.model';
 import { Subscription } from 'rxjs';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-players-list',
@@ -12,7 +13,9 @@ export class PlayersListComponent implements OnInit {
   subscription: Subscription;
   playersArray: PlayerModel[];
 
-  constructor(private playerService: PlayerService) { }
+  constructor(private playerService: PlayerService,
+              private router: Router,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.subscription = this.playerService.playerArrayChanged
@@ -23,16 +26,7 @@ export class PlayersListComponent implements OnInit {
   }
 
   onAddPlayer() {
-    this.playerService.addPlayer(
-      new PlayerModel(
-        'https://upload.wikimedia.org/wikipedia/commons/1/13/Paul_Pogba_in_2018.jpg',
-        'Pogba',
-        25,
-        'French',
-        'Manchaster United',
-        'RM'
-      )
-    );
+    this.router.navigate(['new'], { relativeTo: this.route });
   }
 
 }
