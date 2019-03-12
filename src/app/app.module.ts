@@ -24,6 +24,7 @@ import { SelectComponent } from './select/select.component';
 import { PlayerService } from './shared/player.service';
 import { PlayerEditComponent } from './players/player-edit/player-edit.component';
 import { DropdownDirective } from './shared/dropdown.directive';
+import { ShortenNamePipe } from './shared/shortenName.pipe';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { DropdownDirective } from './shared/dropdown.directive';
     ButtonHoverDirective,
     SelectComponent,
     PlayerEditComponent,
-    DropdownDirective
+    DropdownDirective,
+    ShortenNamePipe
   ],
   imports: [
     BrowserModule,

@@ -11,7 +11,7 @@ class="list-group-item clearfix">
       style="max-height: 50px;">
   </span>
   <div class="row">
-    <div class="list-group-item-text col-md-3 col-md-offset-1">{{ playerItem.name }}</div>
+    <div class="list-group-item-text col-md-3 col-md-offset-1">{{ playerItem.name | shortenName }}</div>
     <div class="list-group-item-text col-md-3">{{ playerItem.age }}</div>
     <div class="list-group-item-text col-md-3">{{ playerItem.strength }}</div>
   </div>

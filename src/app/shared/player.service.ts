@@ -21,7 +21,7 @@ export class PlayerService {
         ),
         new PlayerModel(
             'https://upload.wikimedia.org/wikipedia/commons/f/fd/Cristiano_Ronaldo_after_2018_UEFA_Champions_League_Final.jpg',
-            'Ronaldo',
+            'Christiano Ronaldo',
             28,
             'Portugese',
             'Juventus FC',
