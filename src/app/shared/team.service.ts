@@ -162,6 +162,21 @@ export class TeamService {
         this.teamArrayChanged.next(this.teams.slice());
     }
 
+    updatePlayer(teamToUpdate: string, playerID: string, updatedPlayer: PlayerModel) {
+        this.teams.forEach(el => {
+            if (el.name === teamToUpdate) {
+                const playerOriginalIndex = el.players.findIndex(element => 
+                    element.id === playerID
+                );
+                el.players[playerOriginalIndex] = updatedPlayer;
+                console.log(this.teams);
+                console.log(playerOriginalIndex);
+                console.log(el.players[playerOriginalIndex]);
+            }
+        });
+    }
+
+
     deleteTeam(index: number) {
         this.teams.splice(index, 1);
         this.teamArrayChanged.next(this.teams.slice());

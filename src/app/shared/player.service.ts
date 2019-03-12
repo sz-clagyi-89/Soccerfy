@@ -2,6 +2,7 @@ import { PlayerModel } from './player.model';
 import { Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { TeamService } from './team.service';
+import { TeamModel } from './team.model';
 
 @Injectable()
 export class PlayerService {
@@ -47,7 +48,10 @@ export class PlayerService {
         this.players[index] = updatedPlayer;
         this.playerArrayChanged.next(this.players.slice());
 
-        
+        // update player in teamservice player array
+        // remove it from the prev. teamservice
+        this.teamService.updatePlayer(updatedPlayer.team, this.players[index].id, updatedPlayer);
+        console.log(updatedPlayer.team + ': ' + updatedPlayer.id);
         // update player in teamservice player array
         // remove it from the prev. teamservice
     }

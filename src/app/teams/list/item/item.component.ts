@@ -13,7 +13,8 @@ export class ItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.teamItem.players);
+    // TEST PLAYER TO TEAM
+    this.teamItem.players.forEach((el, i): void => console.log(this.teamItem.name + ' : ' + el.id + ', ' + el.name));
   }
 
 }
