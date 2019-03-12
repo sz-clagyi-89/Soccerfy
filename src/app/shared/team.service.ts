@@ -142,18 +142,6 @@ export class TeamService {
         });
     }
 
-    //////////////// Math.ceil(Math.random() * 1000000000000000).toString(24) ////////////
-
-    // updatePlayerInTeam(updatedTeam: string, player: PlayerModel) {
-    //     this.teams.forEach((el: TeamModel, i: number) => {
-    //         if (el.name === updatedTeam) {
-    //            el.players.forEach((element) => {
-    //             element.name === player.name
-    //            });
-    //         }
-    //     });
-    // }
-
     updateTeam(index: number, updatedTeam: TeamModel): void {
         updatedTeam.players = this.teams[index].players;
         this.countPerformance(updatedTeam);
@@ -169,17 +157,26 @@ export class TeamService {
                     element.id === playerID
                 );
                 el.players[playerOriginalIndex] = updatedPlayer;
+                // TEST PLAYER TO TEAM
                 console.log(this.teams);
-                console.log(playerOriginalIndex);
-                console.log(el.players[playerOriginalIndex]);
             }
         });
     }
 
-
     deleteTeam(index: number) {
         this.teams.splice(index, 1);
         this.teamArrayChanged.next(this.teams.slice());
+    }
+
+    deletePlayer(teamName: string, ID: string) {
+        this.teams.forEach(el => {
+            if (el.name === teamName) {
+                const playerIndexToDel = el.players.findIndex(e => e.id === ID);
+                el.players.splice(playerIndexToDel, 1);
+            }
+        });
+        // TEST PLAYER TO TEAM
+        console.log(this.teams);
     }
 
     countPerformance(teamObj) {

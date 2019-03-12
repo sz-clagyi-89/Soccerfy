@@ -14,7 +14,7 @@ export class ItemComponent implements OnInit {
 
   ngOnInit() {
     // TEST PLAYER TO TEAM
-    this.teamItem.players.forEach((el, i): void => console.log(this.teamItem.name + ' : ' + el.id + ', ' + el.name));
+    console.log(this.teamItem);
   }
 
 }

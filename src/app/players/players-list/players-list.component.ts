@@ -24,7 +24,7 @@ export class PlayersListComponent implements OnInit {
       });
     this.playersArray = this.playerService.getPlayers();
     // TEST PLAYER TO TEAM
-    this.playersArray.forEach(el => console.log(el.team + ' : ' + el.name + ' , ' + el.id));
+    // this.playersArray.forEach(el => console.log(el.team + ' : ' + el.name + ' , ' + el.id));
   }
 
   onAddPlayer() {

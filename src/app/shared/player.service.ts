@@ -40,7 +40,6 @@ export class PlayerService {
     addPlayer(item: PlayerModel) {
         this.players.push(item);
         this.playerArrayChanged.next(this.players.slice());
-        // add it into teamservice player array
     }
 
     updatePlayer(index: number, updatedPlayer: PlayerModel) {
@@ -48,15 +47,12 @@ export class PlayerService {
         this.players[index] = updatedPlayer;
         this.playerArrayChanged.next(this.players.slice());
 
-        // update player in teamservice player array
-        // remove it from the prev. teamservice
         this.teamService.updatePlayer(updatedPlayer.team, this.players[index].id, updatedPlayer);
         console.log(updatedPlayer.team + ': ' + updatedPlayer.id);
-        // update player in teamservice player array
-        // remove it from the prev. teamservice
     }
 
     deletePlayer(index: number) {
+        this.teamService.deletePlayer(this.players[index].team, this.players[index].id);
         this.players.splice(index, 1);
         this.playerArrayChanged.next(this.players.slice());
         // delete player from team array
