@@ -130,18 +130,6 @@ export class TeamService {
         this.teamArrayChanged.next(this.teams.slice());
     }
 
-    addPlayerToTeam(updatedTeam: string, newPlayer: PlayerModel) {
-        if (!newPlayer.id) {
-            newPlayer.id = Math.ceil(Math.random() * 1000000000000000).toString(24);
-        }
-        this.teams.forEach((el: TeamModel, i: number) => {
-            if (el.name === updatedTeam) {
-               el.players.push(newPlayer);
-               console.log(el);
-            }
-        });
-    }
-
     updateTeam(index: number, updatedTeam: TeamModel): void {
         updatedTeam.players = this.teams[index].players;
         this.countPerformance(updatedTeam);
@@ -150,33 +138,9 @@ export class TeamService {
         this.teamArrayChanged.next(this.teams.slice());
     }
 
-    updatePlayer(teamToUpdate: string, playerID: string, updatedPlayer: PlayerModel) {
-        this.teams.forEach(el => {
-            if (el.name === teamToUpdate) {
-                const playerOriginalIndex = el.players.findIndex(element => 
-                    element.id === playerID
-                );
-                el.players[playerOriginalIndex] = updatedPlayer;
-                // TEST PLAYER TO TEAM
-                console.log(this.teams);
-            }
-        });
-    }
-
     deleteTeam(index: number) {
         this.teams.splice(index, 1);
         this.teamArrayChanged.next(this.teams.slice());
-    }
-
-    deletePlayer(teamName: string, ID: string) {
-        this.teams.forEach(el => {
-            if (el.name === teamName) {
-                const playerIndexToDel = el.players.findIndex(e => e.id === ID);
-                el.players.splice(playerIndexToDel, 1);
-            }
-        });
-        // TEST PLAYER TO TEAM
-        console.log(this.teams);
     }
 
     countPerformance(teamObj) {

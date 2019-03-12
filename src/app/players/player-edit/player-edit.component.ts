@@ -3,7 +3,7 @@ import { PlayerModel } from 'src/app/shared/player.model';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { PlayerService } from 'src/app/shared/player.service';
-import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { TeamService } from 'src/app/shared/team.service';
 import { TeamModel } from 'src/app/shared/team.model';
 
@@ -63,30 +63,24 @@ export class PlayerEditComponent implements OnInit, OnDestroy{
     let goals = null;
     let assistance = null;
     let strength = null;
-    // let id = null;
 
     if (this.editMode) {
-      // this.position = this.posts.find(el => {
-      //   return el === this.playerInstance.position;
-      // });
-      // console.log(this.position);
       this.playerInstance = this.playerService.getPlayer(this.ID);
-      const defaultPost = this.playerInstance.position;
-      const defaultTeam = this.playerInstance.team;
+      // const defaultPost = this.playerInstance.position;
+      // const defaultTeam = this.playerInstance.team;
 
       imagePath = this.playerInstance.imagePath;
       name = this.playerInstance.name;
       age = this.playerInstance.age;
       nationality = this.playerInstance.nationality;
-      team = defaultTeam;
-      position = defaultPost;
+      team = this.playerInstance.team;
+      position = this.playerInstance.position;
       attack = this.playerInstance.attack;
       middle = this.playerInstance.middle;
       defense = this.playerInstance.defense;
       goals = this.playerInstance.goals;
       assistance = this.playerInstance.assistance;
       strength = this.playerInstance.strength;
-      // id = this.playerInstance.id;
     }
 
     this.playerForm = new FormGroup({
@@ -94,7 +88,7 @@ export class PlayerEditComponent implements OnInit, OnDestroy{
       'name': new FormControl(name, Validators.required),
       'age': new FormControl(age, Validators.required),
       'nationality': new FormControl(nationality, Validators.required),
-      'team': new FormControl(team, Validators.required),
+      'team': new FormControl(team),
       'position': new FormControl(position, Validators.required),
       'attack': new FormControl(attack, Validators.required),
       'middle': new FormControl(middle, Validators.required),
@@ -102,25 +96,22 @@ export class PlayerEditComponent implements OnInit, OnDestroy{
       'goals': new FormControl(goals, Validators.required),
       'assistance': new FormControl(assistance, Validators.required),
       'strength': new FormControl(strength, Validators.required),
-      // 'id': new FormControl({value: id, disabled: true})
     });
   }
 
   onSubmit() {
     console.log(this.playerForm.value);
     if (this.editMode) {
-      // this.teamService.updatePlayerInTeam(this.playerForm.value.team, this.playerForm.value);
       this.playerService.updatePlayer(this.ID, this.playerForm.value);
       this.onCancelForm();
     } else {
-      this.teamService.addPlayerToTeam(this.playerForm.value.team, this.playerForm.value);
       this.playerService.addPlayer(this.playerForm.value);
       this.onCancelForm();
     }
   }
 
   onCancelForm() {
-    this.router.navigate(['../'], {relativeTo: this.route});
+    this.router.navigate(['../' ], {relativeTo: this.route});
   }
 
   ngOnDestroy() {
