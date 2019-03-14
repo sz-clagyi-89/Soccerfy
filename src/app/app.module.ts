@@ -1,11 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { PlayersComponent } from './players/players.component';
 import { TeamsComponent } from './teams/teams.component';
 import { HeaderComponent } from './header/header.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { PlayersListComponent } from './players/players-list/players-list.component';
 import { PlayerItemComponent } from './players/players-list/player-item/player-item.component';
@@ -25,6 +26,9 @@ import { PlayerService } from './shared/player.service';
 import { PlayerEditComponent } from './players/player-edit/player-edit.component';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { ShortenNamePipe } from './shared/shortenName.pipe';
+import { ServerService } from './shared/server.service';
+import { TeamPlayersListComponent } from './teams/team-players-list/team-players-list.component';
+import { TeamPlayerItemComponent } from './teams/team-players-list/team-player-item/team-player-item.component';
 
 @NgModule({
   declarations: [
@@ -47,15 +51,18 @@ import { ShortenNamePipe } from './shared/shortenName.pipe';
     SelectComponent,
     PlayerEditComponent,
     DropdownDirective,
-    ShortenNamePipe
+    ShortenNamePipe,
+    TeamPlayersListComponent,
+    TeamPlayerItemComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpModule,
     AppRoutingModule
   ],
-  providers: [ TeamService, PlayerService ],
+  providers: [ TeamService, PlayerService, ServerService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

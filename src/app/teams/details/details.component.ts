@@ -39,6 +39,10 @@ export class DetailsComponent implements OnInit, OnDestroy {
     this.router.navigate(['../'], {relativeTo: this.route});
   }
 
+  onPlayers() {
+    this.router.navigate(['/teams', this.ID, 'teamplayers']);
+  }
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }

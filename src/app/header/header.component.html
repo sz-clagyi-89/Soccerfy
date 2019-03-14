@@ -7,6 +7,17 @@
       </a>
       <img src="#" alt="cover">
     </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown" appDropdownDirective>
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Manage<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a (click)="onSave()">Save</a></li>
+            <li><a (click)="onGet()">Load</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
   </div>
 </nav>
 <div class="container">

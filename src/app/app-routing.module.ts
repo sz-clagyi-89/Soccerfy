@@ -9,6 +9,7 @@ import { EditComponent } from './teams/edit/edit.component';
 import { SelectComponent } from './select/select.component';
 import { PlayerDetailsComponent } from './players/player-details/player-details.component';
 import { PlayerEditComponent } from './players/player-edit/player-edit.component';
+import { TeamPlayersListComponent } from './teams/team-players-list/team-players-list.component';
 
 const appRoutes: Routes = [
     {path: '', redirectTo: '/teams', pathMatch: 'full'},
@@ -17,6 +18,7 @@ const appRoutes: Routes = [
         {path: 'new', component: EditComponent},
         {path: ':id', component: DetailsComponent},
         {path: ':id/edit', component: EditComponent},
+        {path: ':id/teamplayers', component: TeamPlayersListComponent},
     ]},
     {path: 'players', component: PlayersComponent, children: [
         {path: '', component: SelectComponent},

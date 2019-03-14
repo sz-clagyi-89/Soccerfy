@@ -67,7 +67,7 @@ export class TeamService {
                 30,
                 'Argentinean',
                 'Chelsea FC',
-                'CMF',
+                'CMF'
             ),
             new PlayerModel(
                 'https://upload.wikimedia.org/wikipedia/commons/f/fd/Cristiano_Ronaldo_after_2018_UEFA_Champions_League_Final.jpg',
@@ -75,7 +75,23 @@ export class TeamService {
                 28,
                 'Portugese',
                 'Juventus FC',
-                'CF',
+                'CF'
+            ),
+            new PlayerModel(
+                'https://upload.wikimedia.org/wikipedia/commons/f/fd/Cristiano_Ronaldo_after_2018_UEFA_Champions_League_Final.jpg',
+                'Ronaldo',
+                28,
+                'Portugese',
+                'Juventus FC',
+                'CF'
+            ),
+            new PlayerModel(
+                'https://upload.wikimedia.org/wikipedia/commons/f/fd/Cristiano_Ronaldo_after_2018_UEFA_Champions_League_Final.jpg',
+                'Ronaldo',
+                28,
+                'Portugese',
+                'Juventus FC',
+                'CF'
             )]
             ),
         new TeamModel(
@@ -93,15 +109,15 @@ export class TeamService {
                 30,
                 'Argentinean',
                 'Chelsea FC',
-                'CMF',
+                'CMF'
             )]
             ),
         new TeamModel(
-            'https://m.blog.hu/ns/nst/image/Henya/Vend%C3%A9gszerz%C5%91/chelsea.jpg',
-            'Chel FC',
-            'EF',
-            'Maurizio Sarri',
-            'https://upload.wikimedia.org/wikipedia/commons/f/f7/Arsenal_2_Chelsea_1_%2834876312101%29.jpg',
+            'https://upload.wikimedia.org/wikipedia/commons/d/d2/Fc_barca.png',
+            'Barcelona FC',
+            'BBVA',
+            'Ernesto Valverde',
+            'https://upload.wikimedia.org/wikipedia/commons/8/88/Barcelona_vs_Arsenal_Teams_line_up.jpg',
             5,
             0,
             0,
@@ -111,7 +127,7 @@ export class TeamService {
                 30,
                 'Argentinean',
                 'Chelsea FC',
-                'CMF',
+                'CMF'
             )]
         )
     ];
@@ -122,6 +138,10 @@ export class TeamService {
 
     getTeam(index: number): TeamModel {
         return this.teams[index];
+    }
+
+    getTeamPlayers(index: number) {
+        return this.teams[index].players;
     }
 
     addTeam(item: TeamModel): void {
