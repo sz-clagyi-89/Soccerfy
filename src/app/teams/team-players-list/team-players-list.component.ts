@@ -20,6 +20,11 @@ export class TeamPlayersListComponent implements OnInit {
     this.route.params
       .subscribe((params: Params) => this.teamID = +params['id']);
     this.teamPlayers = this.teamService.getTeamPlayers(this.teamID);
+    this.teamService.teamPlayerArrayChanged
+      .subscribe((playerArrayUpdated: PlayerModel[]) => {
+        this.teamPlayers = playerArrayUpdated;
+        console.log(this.teamPlayers);
+    });
   }
 
   onBackToDetails() {

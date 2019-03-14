@@ -6,6 +6,7 @@ import { NgForm } from '@angular/forms';
 
 export class TeamService {
     teamArrayChanged = new Subject<TeamModel[]>();
+    teamPlayerArrayChanged = new Subject<PlayerModel[]>();
 
     teams: TeamModel[] = [
         new TeamModel(
@@ -161,6 +162,12 @@ export class TeamService {
     deleteTeam(index: number) {
         this.teams.splice(index, 1);
         this.teamArrayChanged.next(this.teams.slice());
+    }
+
+    removePlayer(teamIndex: number, playerIndex: number) {
+        this.teams[teamIndex].players.splice(playerIndex, 1);
+        this.teamPlayerArrayChanged.next(this.teams[teamIndex].players);
+        console.log(this.teams[teamIndex].players);
     }
 
     countPerformance(teamObj) {

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PlayerModel } from 'src/app/shared/player.model';
+import { TeamService } from 'src/app/shared/team.service';
 
 @Component({
   selector: 'app-team-player-item',
@@ -8,10 +9,16 @@ import { PlayerModel } from 'src/app/shared/player.model';
 })
 export class TeamPlayerItemComponent implements OnInit {
   @Input() teamPlayer: PlayerModel;
+  @Input() teamIndex: number;
+  @Input() playerIndex: number;
 
-  constructor() { }
+  constructor(private teamService: TeamService) { }
 
   ngOnInit() {
+  }
+
+  onRemovePlayer() {
+    this.teamService.removePlayer(this.teamIndex, this.playerIndex);
   }
 
 }

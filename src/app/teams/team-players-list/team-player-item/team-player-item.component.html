@@ -12,6 +12,6 @@ class="list-group-item clearfix">
     <div class="list-group-item-text col-md-2 col-md-offset-1">{{ teamPlayer.name }}</div>
     <div class="list-group-item-text col-md-2">{{ teamPlayer.age }}</div>
     <div class="list-group-item-text col-md-2">{{ teamPlayer.strength }}</div>
-    <button class="btn btn-default col-md-2">Remove</button>
+    <button (click)="onRemovePlayer()" class="btn btn-default col-md-2">Remove</button>
   </div>
 </div>
