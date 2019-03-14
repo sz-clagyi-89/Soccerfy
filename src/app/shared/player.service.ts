@@ -38,6 +38,7 @@ export class PlayerService {
     }
 
     addPlayer(item: PlayerModel) {
+        item.id = PlayerModel.getID();
         this.players.push(item);
         this.playerArrayChanged.next(this.players.slice());
         console.log(this.players.slice());

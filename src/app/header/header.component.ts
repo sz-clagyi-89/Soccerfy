@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { TeamService } from '../shared/team.service';
 import { ServerService } from '../shared/server.service';
 import { TeamModel } from '../shared/team.model';
+import { PlayerService } from '../shared/player.service';
+import { PlayerModel } from '../shared/player.model';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +13,8 @@ import { TeamModel } from '../shared/team.model';
 export class HeaderComponent implements OnInit {
 
   constructor(private teamService: TeamService,
-              private serverService: ServerService) { }
+              private serverService: ServerService,
+              private playerService: PlayerService) { }
 
   ngOnInit() {
   }
@@ -23,6 +26,13 @@ export class HeaderComponent implements OnInit {
         (response) => {console.log(response)},
         (error) => {console.log(error)}
         );
+    
+    const players = this.playerService.getPlayers();
+    this.serverService.storePlayers(players)
+      .subscribe(
+        (response) => {console.log(response)},
+        (error) => {console.log(error)}
+      );
   }
 
   onGet() {
@@ -31,5 +41,10 @@ export class HeaderComponent implements OnInit {
         console.log(teams);
       }
     );
+
+    this.serverService.getPlayers()
+    .subscribe((players: any[]) => {
+      console.log(players);
+    });
   }
 }

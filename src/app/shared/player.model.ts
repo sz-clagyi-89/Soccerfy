@@ -11,7 +11,7 @@ export class PlayerModel {
     public goals: number;
     public assistance: number;
     public strength: number;
-    public id = this.getID();
+    public id = Math.ceil(Math.random() * 1000000000000000).toString(24);
 
     constructor(img: string, name: string, age: number, nat: string, team: string, position: string,
                 att = 0, mid = 0, def = 0,
@@ -30,7 +30,7 @@ export class PlayerModel {
         this.strength = strength;
     }
 
-    getID() {
+    static getID() {
         return Math.ceil(Math.random() * 1000000000000000).toString(24);
     }
 }
