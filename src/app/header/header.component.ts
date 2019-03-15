@@ -37,14 +37,15 @@ export class HeaderComponent implements OnInit {
 
   onGet() {
     this.serverService.getTeams()
-      .subscribe((teams: any[]) => {
-        console.log(teams);
-      }
+      .subscribe(
+        (teams: any[]) => console.log(teams),
+        (error) => console.log(error)
     );
 
     this.serverService.getPlayers()
-    .subscribe((players: any[]) => {
-      console.log(players);
-    });
+    .subscribe(
+      (players: any[]) => console.log(players),
+      (error) => console.log(error)
+    );
   }
 }

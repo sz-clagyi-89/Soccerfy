@@ -29,6 +29,7 @@ import { ShortenNamePipe } from './shared/shortenName.pipe';
 import { ServerService } from './shared/server.service';
 import { TeamPlayersListComponent } from './teams/team-players-list/team-players-list.component';
 import { TeamPlayerItemComponent } from './teams/team-players-list/team-player-item/team-player-item.component';
+import { ManagerTeamItemComponent } from './manager/manager-teams-details/manager-team-item/manager-team-item.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { TeamPlayerItemComponent } from './teams/team-players-list/team-player-i
     DropdownDirective,
     ShortenNamePipe,
     TeamPlayersListComponent,
-    TeamPlayerItemComponent
+    TeamPlayerItemComponent,
+    ManagerTeamItemComponent
   ],
   imports: [
     BrowserModule,

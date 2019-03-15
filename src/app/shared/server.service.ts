@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import { TeamModel } from './team.model';
-import { map } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
 import { PlayerModel } from './player.model';
+import { throwError } from 'rxjs';
 
 @Injectable()
 export class ServerService {
@@ -25,7 +26,10 @@ export class ServerService {
                     const data = response.json();
                     return data;
                 })
-            );
+            )
+            .pipe(catchError(error => {
+                return throwError('Something went wrong');
+            }));
     }
 
     getPlayers() {
@@ -36,6 +40,9 @@ export class ServerService {
                     return data2;
                 }
             )
-        );
+        )
+        .pipe(catchError(error => {
+                return throwError('Something went wrong');
+        }));
     }
 }

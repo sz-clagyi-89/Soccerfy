@@ -1,1 +1,11 @@
-<app-manager-teams-item></app-manager-teams-item>
+<h3>Please Select a team!</h3>
+<div class="row">
+    <div class="col-md-12">
+        <app-manager-teams-item 
+            *ngFor="let currentTeam of teams; let i = index"
+            [team]="currentTeam"
+            [index]="i">
+        </app-manager-teams-item>
+    </div>
+</div>
+

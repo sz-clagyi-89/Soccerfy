@@ -2,7 +2,6 @@ import { PlayerModel } from './player.model';
 import { Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { TeamService } from './team.service';
-import { TeamModel } from './team.model';
 
 @Injectable()
 export class PlayerService {

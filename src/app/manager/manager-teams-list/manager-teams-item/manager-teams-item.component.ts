@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { TeamModel } from 'src/app/shared/team.model';
 
 @Component({
   selector: 'app-manager-teams-item',
@@ -6,13 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./manager-teams-item.component.css']
 })
 export class ManagerTeamsItemComponent implements OnInit {
-  grids = [
-    'Man-abcd', 'Man-bcde', 'Man-cdef', 'Man-defg', 'Man-abcd', 'Man-bcde', 'Man-cdef', 'Man-defg', 'Man-abcd', 'Man-bcde', 'Man-cdef', 'Man-defg'
-  ];
+  @Input() team: TeamModel;
+  @Input() index: number;
 
   constructor() { }
 
   ngOnInit() {
+    console.log(this.team);
+    console.log(this.index);
   }
 
 }

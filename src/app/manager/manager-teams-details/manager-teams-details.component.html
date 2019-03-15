@@ -1,3 +1,14 @@
-<p>
-  manager-teams-detail works!
-</p>
+<div class="row">
+    <h3>Available players 
+        <span class="label label-default">Number</span>
+      </h3>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <app-manager-team-item 
+            *ngFor="let player of playersArray; let i = index;"
+            [playerItem]='player'
+            [index]="i">
+        </app-manager-team-item>
+    </div>
+</div>
