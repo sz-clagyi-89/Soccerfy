@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { TeamService } from 'src/app/shared/team.service';
 import { TeamModel } from 'src/app/shared/team.model';
@@ -23,6 +23,9 @@ export class ManagerTeamSummaryComponent implements OnInit {
         this.teamID = +params['id'];
         this.teamSummary = this.teamService.getTeam(+params['id']);
         this.teamPlayers = this.teamService.getTeamPlayers(+params['id']);
+        ////////////////
+        //// you receive the TEAM ID'S here you will pass it in service here and forward it into the items;
+        this.teamService.teamIdPasser.next(+params['id']);
       });
   }
 

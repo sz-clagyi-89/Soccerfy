@@ -13,8 +13,8 @@ export class ManagerTeamsItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.team);
-    console.log(this.index);
+    // console.log(this.team);
+    // console.log(this.index);
   }
 
 }

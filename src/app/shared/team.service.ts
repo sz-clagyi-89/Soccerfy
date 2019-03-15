@@ -8,6 +8,8 @@ export class TeamService {
     teamArrayChanged = new Subject<TeamModel[]>();
     teamPlayerArrayChanged = new Subject<PlayerModel[]>();
 
+    teamIdPasser = new Subject<number>();
+
     teams: TeamModel[] = [
         new TeamModel(
             'https://m.blog.hu/ns/nst/image/Henya/Vend%C3%A9gszerz%C5%91/chelsea.jpg',
@@ -195,6 +197,14 @@ export class TeamService {
         this.teams.splice(index, 1);
         this.teamArrayChanged.next(this.teams.slice());
     }
+
+    ///////////////////////
+    addPlayer(teamID: number, newPlayer: PlayerModel): void {
+        this.teams[teamID].players.push(newPlayer);
+        this.teamPlayerArrayChanged.next(this.teams[teamID].players);
+        console.log(this.teams[teamID].players);
+    }
+    /////////////////////
 
     removePlayer(teamIndex: number, playerIndex: number) {
         this.teams[teamIndex].players.splice(playerIndex, 1);
