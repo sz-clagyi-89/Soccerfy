@@ -1,0 +1,13 @@
+<div class="jumbotron">
+  <h3>
+    {{ teamSummary.name }} player list
+  </h3>
+  <div class="row">
+      <ul class="list-group">
+        <li class="list-group-item list-group-item col-md-3" *ngFor="let player of teamPlayers">
+          {{ player.name | shortenName:10 }}
+        </li>
+      </ul>
+    </div>
+</div>
+

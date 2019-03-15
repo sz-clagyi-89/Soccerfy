@@ -30,6 +30,7 @@ import { ServerService } from './shared/server.service';
 import { TeamPlayersListComponent } from './teams/team-players-list/team-players-list.component';
 import { TeamPlayerItemComponent } from './teams/team-players-list/team-player-item/team-player-item.component';
 import { ManagerTeamItemComponent } from './manager/manager-teams-details/manager-team-item/manager-team-item.component';
+import { ManagerTeamSummaryComponent } from './manager/manager-teams-details/manager-team-summary/manager-team-summary.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { ManagerTeamItemComponent } from './manager/manager-teams-details/manage
     ShortenNamePipe,
     TeamPlayersListComponent,
     TeamPlayerItemComponent,
-    ManagerTeamItemComponent
+    ManagerTeamItemComponent,
+    ManagerTeamSummaryComponent
   ],
   imports: [
     BrowserModule,

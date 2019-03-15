@@ -10,6 +10,7 @@ import { SelectComponent } from './select/select.component';
 import { PlayerDetailsComponent } from './players/player-details/player-details.component';
 import { PlayerEditComponent } from './players/player-edit/player-edit.component';
 import { TeamPlayersListComponent } from './teams/team-players-list/team-players-list.component';
+import { ManagerTeamSummaryComponent } from './manager/manager-teams-details/manager-team-summary/manager-team-summary.component';
 
 const appRoutes: Routes = [
     {path: '', redirectTo: '/teams', pathMatch: 'full'},
@@ -26,7 +27,9 @@ const appRoutes: Routes = [
         {path: ':id', component: PlayerDetailsComponent},
         {path: ':id/edit', component: PlayerEditComponent},
     ]},
-    {path: 'manager', component: ManagerComponent},
+    {path: 'manager', component: ManagerComponent, children: [
+        {path: ':id', component: ManagerTeamSummaryComponent}
+    ]},
 ];
 
 @NgModule({
