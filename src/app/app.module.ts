@@ -31,6 +31,7 @@ import { TeamPlayersListComponent } from './teams/team-players-list/team-players
 import { TeamPlayerItemComponent } from './teams/team-players-list/team-player-item/team-player-item.component';
 import { ManagerTeamItemComponent } from './manager/manager-teams-details/manager-team-item/manager-team-item.component';
 import { ManagerTeamSummaryComponent } from './manager/manager-teams-details/manager-team-summary/manager-team-summary.component';
+import { SelectPlayerComponent } from './players/select-player/select-player.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { ManagerTeamSummaryComponent } from './manager/manager-teams-details/man
     TeamPlayersListComponent,
     TeamPlayerItemComponent,
     ManagerTeamItemComponent,
-    ManagerTeamSummaryComponent
+    ManagerTeamSummaryComponent,
+    SelectPlayerComponent
   ],
   imports: [
     BrowserModule,

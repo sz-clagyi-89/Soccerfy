@@ -11,6 +11,7 @@ import { PlayerDetailsComponent } from './players/player-details/player-details.
 import { PlayerEditComponent } from './players/player-edit/player-edit.component';
 import { TeamPlayersListComponent } from './teams/team-players-list/team-players-list.component';
 import { ManagerTeamSummaryComponent } from './manager/manager-teams-details/manager-team-summary/manager-team-summary.component';
+import { SelectPlayerComponent } from './players/select-player/select-player.component';
 
 const appRoutes: Routes = [
     {path: '', redirectTo: '/teams', pathMatch: 'full'},
@@ -22,7 +23,7 @@ const appRoutes: Routes = [
         {path: ':id/teamplayers', component: TeamPlayersListComponent},
     ]},
     {path: 'players', component: PlayersComponent, children: [
-        {path: '', component: SelectComponent},
+        {path: '', component: SelectPlayerComponent},
         {path: 'new', component: PlayerEditComponent},
         {path: ':id', component: PlayerDetailsComponent},
         {path: ':id/edit', component: PlayerEditComponent},
