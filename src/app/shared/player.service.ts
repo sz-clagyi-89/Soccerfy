@@ -15,7 +15,6 @@ export class PlayerService {
             'Messi',
             30,
             'Argentinean',
-            'Chelsea FC',
             'CMF',
         ),
         new PlayerModel(
@@ -23,8 +22,7 @@ export class PlayerService {
             'Christiano Ronaldo',
             28,
             'Portugese',
-            'Juventus FC',
-            'CF',
+            'STR',
         ),
     ];
 
@@ -43,6 +41,30 @@ export class PlayerService {
         console.log(this.players.slice());
     }
 
+    addTeamName(activeTeamIndex: number, playerItem: PlayerModel) {
+        const playerID = this.players.findIndex(el => {
+            return el.id === playerItem.id;
+          });
+        const teamName = this.teamService.getTeam(activeTeamIndex).name;
+        const teamCheck = this.players[playerID].teams.findIndex(el => {
+            return el === teamName;
+          });
+        
+        if (this.players[playerID].teams[0].includes('Has no')) {
+          this.players[playerID].teams = [];
+        }
+        if (teamCheck === -1) {
+            this.players[playerID].teams.push(teamName);
+            this.playerArrayChanged.next(this.players.slice());
+            this.teamService.addPlayer(activeTeamIndex, playerItem);
+            console.log('Added teamname to player: ' + this.players[playerID].teams);
+        } else {
+            console.log('This mate is ALREADY ADDED to this team!');
+        }
+    }
+       ///// triggering the WHOLE ACTION FROM PLAYER AND FROMTHERE WOULD BE PASSED TO TEAM
+       
+
     updatePlayer(index: number, updatedPlayer: PlayerModel) {
         updatedPlayer.id = this.players[index].id;
         this.players[index] = updatedPlayer;
@@ -53,6 +75,5 @@ export class PlayerService {
     deletePlayer(index: number) {
         this.players.splice(index, 1);
         this.playerArrayChanged.next(this.players.slice());
-        // delete player from team array
     }
 }

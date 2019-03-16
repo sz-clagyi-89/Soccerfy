@@ -1,14 +1,17 @@
 import { TeamModel } from './team.model';
 import { Subject } from 'rxjs';
 import { PlayerModel } from './player.model';
-import { NgForm } from '@angular/forms';
-
+import { Injectable } from '@angular/core';
+import { PlayerService } from './player.service';
 
 export class TeamService {
     teamArrayChanged = new Subject<TeamModel[]>();
     teamPlayerArrayChanged = new Subject<PlayerModel[]>();
 
     teamIdPasser = new Subject<number>();
+    playerIdPasser = new Subject<string>();
+
+    constructor() { }
 
     teams: TeamModel[] = [
         new TeamModel(
@@ -25,7 +28,6 @@ export class TeamService {
                 'Messi',
                 30,
                 'Argentinean',
-                'Chelsea FC',
                 'CMF',
             ),
             new PlayerModel(
@@ -33,7 +35,6 @@ export class TeamService {
                 'TESTING PLAYR TO TEAM',
                 28,
                 'Portugese',
-                'Juventus FC',
                 'CF',
             ),
             new PlayerModel(
@@ -41,7 +42,6 @@ export class TeamService {
                 'Ronaldo',
                 28,
                 'Portugese',
-                'Juventus FC',
                 'CF'
             ),
             new PlayerModel(
@@ -49,7 +49,6 @@ export class TeamService {
                 'Messi',
                 30,
                 'Argentinean',
-                'Chelsea FC',
                 'CMF',
             ),
             new PlayerModel(
@@ -57,7 +56,6 @@ export class TeamService {
                 'TESTING PLAYR TO TEAM',
                 28,
                 'Portugese',
-                'Juventus FC',
                 'CF',
             ),
             new PlayerModel(
@@ -65,7 +63,6 @@ export class TeamService {
                 'Ronaldo',
                 28,
                 'Portugese',
-                'Juventus FC',
                 'CF'
             )]
             ),
@@ -83,7 +80,6 @@ export class TeamService {
                 'Messi',
                 30,
                 'Argentinean',
-                'Chelsea FC',
                 'CMF',
             )]
         ),
@@ -101,7 +97,6 @@ export class TeamService {
                 'Messi',
                 30,
                 'Argentinean',
-                'Chelsea FC',
                 'CMF'
             ),
             new PlayerModel(
@@ -109,7 +104,6 @@ export class TeamService {
                 'Ronaldo',
                 28,
                 'Portugese',
-                'Juventus FC',
                 'CF'
             ),
             new PlayerModel(
@@ -117,7 +111,6 @@ export class TeamService {
                 'Ronaldo',
                 28,
                 'Portugese',
-                'Juventus FC',
                 'CF'
             ),
             new PlayerModel(
@@ -125,7 +118,6 @@ export class TeamService {
                 'Ronaldo',
                 28,
                 'Portugese',
-                'Juventus FC',
                 'CF'
             )]
             ),
@@ -143,7 +135,6 @@ export class TeamService {
                 'Messi',
                 30,
                 'Argentinean',
-                'Chelsea FC',
                 'CMF'
             )]
             ),
@@ -161,7 +152,6 @@ export class TeamService {
                 'Messi',
                 30,
                 'Argentinean',
-                'Chelsea FC',
                 'CMF'
             )]
         )
@@ -208,12 +198,15 @@ export class TeamService {
         if (isPlayerContracted === -1) {
             teamPlayers.push(newPlayer);
             this.teamPlayerArrayChanged.next(this.teams[teamID].players);
-            console.log(teamPlayers);
-        } else {
-            console.log('This player is already CONTRACTED soxou can\'t him again');
-        }
 
-        
+            ////// add teamname to player compmethods
+            this.teamIdPasser.next(teamID);
+            this.playerIdPasser.next(newPlayer.id);
+            // console.log(teamID);
+            // console.log(newPlayer.id);
+        } else {
+            console.log('This player is already CONTRACTED so you can\'t add him again');
+        }
     }
     /////////////////////
 

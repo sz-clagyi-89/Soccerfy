@@ -29,8 +29,8 @@
         {{ player.position }}
       </div>
       <div class="panel-heading">Team</div>
-      <div class="panel-body">
-          {{ player.team }}
+      <div class="panel-body" *ngFor="let team of player.teams">
+          {{ team }}
       </div>
     </div>
   </div>

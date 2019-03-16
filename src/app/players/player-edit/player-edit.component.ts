@@ -73,7 +73,7 @@ export class PlayerEditComponent implements OnInit, OnDestroy{
       name = this.playerInstance.name;
       age = this.playerInstance.age;
       nationality = this.playerInstance.nationality;
-      team = this.playerInstance.team;
+      team = '';
       position = this.playerInstance.position;
       attack = this.playerInstance.attack;
       middle = this.playerInstance.middle;
@@ -102,6 +102,9 @@ export class PlayerEditComponent implements OnInit, OnDestroy{
   onSubmit() {
     console.log(this.playerForm.value);
     if (this.editMode) {
+      /////////////////////
+      //// inject teamservice into player,
+      //   create method in tema serv wich updates player in the right team upon THIS updateplayer method
       this.playerService.updatePlayer(this.ID, this.playerForm.value);
       this.onCancelForm();
     } else {
