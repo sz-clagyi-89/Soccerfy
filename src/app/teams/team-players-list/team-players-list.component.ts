@@ -23,7 +23,7 @@ export class TeamPlayersListComponent implements OnInit {
     this.teamService.teamPlayerArrayChanged
       .subscribe((playerArrayUpdated: PlayerModel[]) => {
         this.teamPlayers = playerArrayUpdated;
-        console.log(this.teamPlayers);
+        // console.log(this.teamPlayers);
     });
   }
 

@@ -200,9 +200,20 @@ export class TeamService {
 
     ///////////////////////
     addPlayer(teamID: number, newPlayer: PlayerModel): void {
-        this.teams[teamID].players.push(newPlayer);
-        this.teamPlayerArrayChanged.next(this.teams[teamID].players);
-        console.log(this.teams[teamID].players);
+        const teamPlayers = this.teams[teamID].players;
+        const isPlayerContracted = teamPlayers.findIndex(el => {
+            return el.id === newPlayer.id;
+        });
+
+        if (isPlayerContracted === -1) {
+            teamPlayers.push(newPlayer);
+            this.teamPlayerArrayChanged.next(this.teams[teamID].players);
+            console.log(teamPlayers);
+        } else {
+            console.log('This player is already CONTRACTED soxou can\'t him again');
+        }
+
+        
     }
     /////////////////////
 
