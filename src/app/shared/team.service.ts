@@ -183,6 +183,28 @@ export class TeamService {
         this.teamArrayChanged.next(this.teams.slice());
     }
 
+    updatePlayerInfos(playerUpdated: PlayerModel) {
+        // console.log(playerUpdated);
+        // checkin all teams
+        this.teams.forEach(el => {
+            // if there is a player with the given id
+            const playerExistingID = el.players.findIndex(e => {
+                console.log(e.id);
+                console.log(playerUpdated.id);
+                return e.id === playerUpdated.id;
+            });
+            console.log(playerExistingID);
+            if (playerExistingID !== -1) {
+                // console.log(el.players[playerExistingID]);
+                el.players[playerExistingID] = playerUpdated;
+            }
+            this.teamPlayerArrayChanged.next(el.players);
+
+        });
+        // if so update it
+        this.teamArrayChanged.next(this.teams.slice());
+    }
+
     deleteTeam(index: number) {
         this.teams.splice(index, 1);
         this.teamArrayChanged.next(this.teams.slice());

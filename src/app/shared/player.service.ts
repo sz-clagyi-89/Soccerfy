@@ -35,6 +35,9 @@ export class PlayerService {
     }
 
     addPlayer(item: PlayerModel) {
+        item.teams = [];
+        item.teams.push('Has no team yet');
+
         item.id = PlayerModel.getID();
         this.players.push(item);
         this.playerArrayChanged.next(this.players.slice());
@@ -62,13 +65,15 @@ export class PlayerService {
             console.log('This mate is ALREADY ADDED to this team!');
         }
     }
-       ///// triggering the WHOLE ACTION FROM PLAYER AND FROMTHERE WOULD BE PASSED TO TEAM
-       
 
     updatePlayer(index: number, updatedPlayer: PlayerModel) {
+
+        updatedPlayer.teams = this.players[index].teams;
+
         updatedPlayer.id = this.players[index].id;
         this.players[index] = updatedPlayer;
         this.playerArrayChanged.next(this.players.slice());
+        this.teamService.updatePlayerInfos(updatedPlayer);
         console.log(this.players.slice());
     }
 

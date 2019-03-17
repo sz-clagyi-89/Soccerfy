@@ -25,7 +25,7 @@ export class PlayerEditComponent implements OnInit, OnDestroy{
   posts = ['GK',
           'LB', 'RB', 'CB', 'SW',
           'LMF', 'RMF', 'CMF',
-          'LW', 'RW', 'CF'];
+          'STR', 'LW', 'RW', 'CF'];
 
   constructor(private route: ActivatedRoute,
               private playerService: PlayerService,
@@ -55,7 +55,6 @@ export class PlayerEditComponent implements OnInit, OnDestroy{
     let name = '';
     let age = null;
     let nationality = '';
-    let team = '';
     let position = '';
     let attack = null;
     let middle = null;
@@ -66,14 +65,11 @@ export class PlayerEditComponent implements OnInit, OnDestroy{
 
     if (this.editMode) {
       this.playerInstance = this.playerService.getPlayer(this.ID);
-      // const defaultPost = this.playerInstance.position;
-      // const defaultTeam = this.playerInstance.team;
 
       imagePath = this.playerInstance.imagePath;
       name = this.playerInstance.name;
       age = this.playerInstance.age;
       nationality = this.playerInstance.nationality;
-      team = '';
       position = this.playerInstance.position;
       attack = this.playerInstance.attack;
       middle = this.playerInstance.middle;
@@ -88,7 +84,7 @@ export class PlayerEditComponent implements OnInit, OnDestroy{
       'name': new FormControl(name, Validators.required),
       'age': new FormControl(age, Validators.required),
       'nationality': new FormControl(nationality, Validators.required),
-      'team': new FormControl(team),
+
       'position': new FormControl(position, Validators.required),
       'attack': new FormControl(attack, Validators.required),
       'middle': new FormControl(middle, Validators.required),
@@ -100,7 +96,6 @@ export class PlayerEditComponent implements OnInit, OnDestroy{
   }
 
   onSubmit() {
-    console.log(this.playerForm.value);
     if (this.editMode) {
       /////////////////////
       //// inject teamservice into player,

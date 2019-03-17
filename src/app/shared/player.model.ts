@@ -33,8 +33,4 @@ export class PlayerModel {
     static getID(): string {
         return Math.ceil(Math.random() * 1000000000000000).toString(24);
     }
-
-    // static addTeam(teamName: string) {
-    //     this.teams.push(teamName);
-    // }
 }
