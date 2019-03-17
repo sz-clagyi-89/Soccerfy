@@ -133,6 +133,10 @@ export class TeamService {
 
     initiateTeams(teams: TeamModel[]) {
         this.teams = teams;
+        this.teams.forEach(el => {
+            this.countPerformance(el);
+            console.log(el.strength);
+        });
         this.teamArrayChanged.next(this.teams.slice());
     }
 
