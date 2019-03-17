@@ -1,8 +1,6 @@
 import { TeamModel } from './team.model';
 import { Subject } from 'rxjs';
 import { PlayerModel } from './player.model';
-import { Injectable } from '@angular/core';
-import { PlayerService } from './player.service';
 
 export class TeamService {
     teamArrayChanged = new Subject<TeamModel[]>();
@@ -13,149 +11,154 @@ export class TeamService {
 
     constructor() { }
 
-    teams: TeamModel[] = [
-        new TeamModel(
-            'https://m.blog.hu/ns/nst/image/Henya/Vend%C3%A9gszerz%C5%91/chelsea.jpg',
-            'Chelsea FC',
-            'Premier Leauge',
-            'Maurizio Sarri',
-            'https://upload.wikimedia.org/wikipedia/commons/f/f7/Arsenal_2_Chelsea_1_%2834876312101%29.jpg',
-            5,
-            2,
-            1,
-            [new PlayerModel(
-                'https://upload.wikimedia.org/wikipedia/commons/c/c1/Lionel_Messi_20180626.jpg',
-                'Messi',
-                30,
-                'Argentinean',
-                'CMF',
-            ),
-            new PlayerModel(
-                'https://upload.wikimedia.org/wikipedia/commons/f/fd/Cristiano_Ronaldo_after_2018_UEFA_Champions_League_Final.jpg',
-                'TESTING PLAYR TO TEAM',
-                28,
-                'Portugese',
-                'CF',
-            ),
-            new PlayerModel(
-                'https://upload.wikimedia.org/wikipedia/commons/f/fd/Cristiano_Ronaldo_after_2018_UEFA_Champions_League_Final.jpg',
-                'Ronaldo',
-                28,
-                'Portugese',
-                'CF'
-            ),
-            new PlayerModel(
-                'https://upload.wikimedia.org/wikipedia/commons/c/c1/Lionel_Messi_20180626.jpg',
-                'Messi',
-                30,
-                'Argentinean',
-                'CMF',
-            ),
-            new PlayerModel(
-                'https://upload.wikimedia.org/wikipedia/commons/f/fd/Cristiano_Ronaldo_after_2018_UEFA_Champions_League_Final.jpg',
-                'TESTING PLAYR TO TEAM',
-                28,
-                'Portugese',
-                'CF',
-            ),
-            new PlayerModel(
-                'https://upload.wikimedia.org/wikipedia/commons/f/fd/Cristiano_Ronaldo_after_2018_UEFA_Champions_League_Final.jpg',
-                'Ronaldo',
-                28,
-                'Portugese',
-                'CF'
-            )]
-            ),
-        new TeamModel(
-            'https://www.footballtickets2go.com/assets/images/Aberdeen-FC.png',
-            'Aberdeen FC',
-            'Scottish Leauge',
-            'Derek McInnes',
-            'https://upload.wikimedia.org/wikipedia/commons/3/3d/Scottish_League_Cup_2014_-_Fan_display.jpg',
-            3,
-            2,
-            1,
-            [new PlayerModel(
-                'https://upload.wikimedia.org/wikipedia/commons/c/c1/Lionel_Messi_20180626.jpg',
-                'Messi',
-                30,
-                'Argentinean',
-                'CMF',
-            )]
-        ),
-        new TeamModel(
-            'https://upload.wikimedia.org/wikipedia/commons/1/10/Escudo_real_madrid_1941b.png',
-            'Real Madrid',
-            'BBVA',
-            'Santiago Solari',
-            'https://upload.wikimedia.org/wikipedia/commons/5/54/Real_Madrid_vs_Bayern_Munich.jpg',
-            1,
-            2,
-            0,
-            [new PlayerModel(
-                'https://upload.wikimedia.org/wikipedia/commons/c/c1/Lionel_Messi_20180626.jpg',
-                'Messi',
-                30,
-                'Argentinean',
-                'CMF'
-            ),
-            new PlayerModel(
-                'https://upload.wikimedia.org/wikipedia/commons/f/fd/Cristiano_Ronaldo_after_2018_UEFA_Champions_League_Final.jpg',
-                'Ronaldo',
-                28,
-                'Portugese',
-                'CF'
-            ),
-            new PlayerModel(
-                'https://upload.wikimedia.org/wikipedia/commons/f/fd/Cristiano_Ronaldo_after_2018_UEFA_Champions_League_Final.jpg',
-                'Ronaldo',
-                28,
-                'Portugese',
-                'CF'
-            ),
-            new PlayerModel(
-                'https://upload.wikimedia.org/wikipedia/commons/f/fd/Cristiano_Ronaldo_after_2018_UEFA_Champions_League_Final.jpg',
-                'Ronaldo',
-                28,
-                'Portugese',
-                'CF'
-            )]
-            ),
-        new TeamModel(
-            'https://upload.wikimedia.org/wikipedia/commons/e/e8/Juventus_Logo_2017.png',
-            'Juventus FC',
-            'Serie A TIM',
-            'Massimiliano Allegri',
-            'https://upload.wikimedia.org/wikipedia/commons/d/db/Inside_Juventus_Stadium.jpg',
-            4,
-            0,
-            1,
-            [new PlayerModel(
-                'https://upload.wikimedia.org/wikipedia/commons/c/c1/Lionel_Messi_20180626.jpg',
-                'Messi',
-                30,
-                'Argentinean',
-                'CMF'
-            )]
-            ),
-        new TeamModel(
-            'https://upload.wikimedia.org/wikipedia/commons/d/d2/Fc_barca.png',
-            'Barcelona FC',
-            'BBVA',
-            'Ernesto Valverde',
-            'https://upload.wikimedia.org/wikipedia/commons/8/88/Barcelona_vs_Arsenal_Teams_line_up.jpg',
-            5,
-            0,
-            0,
-            [new PlayerModel(
-                'https://upload.wikimedia.org/wikipedia/commons/c/c1/Lionel_Messi_20180626.jpg',
-                'Messi',
-                30,
-                'Argentinean',
-                'CMF'
-            )]
-        )
+    public teams: TeamModel[] = [
+        // new TeamModel(
+        //     'https://m.blog.hu/ns/nst/image/Henya/Vend%C3%A9gszerz%C5%91/chelsea.jpg',
+        //     'Chelsea FC',
+        //     'Premier Leauge',
+        //     'Maurizio Sarri',
+        //     'https://upload.wikimedia.org/wikipedia/commons/f/f7/Arsenal_2_Chelsea_1_%2834876312101%29.jpg',
+        //     5,
+        //     2,
+        //     1,
+        //     [new PlayerModel(
+        //         'https://upload.wikimedia.org/wikipedia/commons/c/c1/Lionel_Messi_20180626.jpg',
+        //         'Messi',
+        //         30,
+        //         'Argentinean',
+        //         'CMF',
+        //     ),
+        //     new PlayerModel(
+        //         'https://upload.wikimedia.org/wikipedia/commons/f/fd/Cristiano_Ronaldo_after_2018_UEFA_Champions_League_Final.jpg',
+        //         'TESTING PLAYR TO TEAM',
+        //         28,
+        //         'Portugese',
+        //         'CF',
+        //     ),
+        //     new PlayerModel(
+        //         'https://upload.wikimedia.org/wikipedia/commons/f/fd/Cristiano_Ronaldo_after_2018_UEFA_Champions_League_Final.jpg',
+        //         'Ronaldo',
+        //         28,
+        //         'Portugese',
+        //         'CF'
+        //     ),
+        //     new PlayerModel(
+        //         'https://upload.wikimedia.org/wikipedia/commons/c/c1/Lionel_Messi_20180626.jpg',
+        //         'Messi',
+        //         30,
+        //         'Argentinean',
+        //         'CMF',
+        //     ),
+        //     new PlayerModel(
+        //         'https://upload.wikimedia.org/wikipedia/commons/f/fd/Cristiano_Ronaldo_after_2018_UEFA_Champions_League_Final.jpg',
+        //         'TESTING PLAYR TO TEAM',
+        //         28,
+        //         'Portugese',
+        //         'CF',
+        //     ),
+        //     new PlayerModel(
+        //         'https://upload.wikimedia.org/wikipedia/commons/f/fd/Cristiano_Ronaldo_after_2018_UEFA_Champions_League_Final.jpg',
+        //         'Ronaldo',
+        //         28,
+        //         'Portugese',
+        //         'CF'
+        //     )]
+        //     ),
+        // new TeamModel(
+        //     'https://www.footballtickets2go.com/assets/images/Aberdeen-FC.png',
+        //     'Aberdeen FC',
+        //     'Scottish Leauge',
+        //     'Derek McInnes',
+        //     'https://upload.wikimedia.org/wikipedia/commons/3/3d/Scottish_League_Cup_2014_-_Fan_display.jpg',
+        //     3,
+        //     2,
+        //     1,
+        //     [new PlayerModel(
+        //         'https://upload.wikimedia.org/wikipedia/commons/c/c1/Lionel_Messi_20180626.jpg',
+        //         'Messi',
+        //         30,
+        //         'Argentinean',
+        //         'CMF',
+        //     )]
+        // ),
+        // new TeamModel(
+        //     'https://upload.wikimedia.org/wikipedia/commons/1/10/Escudo_real_madrid_1941b.png',
+        //     'Real Madrid',
+        //     'BBVA',
+        //     'Santiago Solari',
+        //     'https://upload.wikimedia.org/wikipedia/commons/5/54/Real_Madrid_vs_Bayern_Munich.jpg',
+        //     1,
+        //     2,
+        //     0,
+        //     [new PlayerModel(
+        //         'https://upload.wikimedia.org/wikipedia/commons/c/c1/Lionel_Messi_20180626.jpg',
+        //         'Messi',
+        //         30,
+        //         'Argentinean',
+        //         'CMF'
+        //     ),
+        //     new PlayerModel(
+        //         'https://upload.wikimedia.org/wikipedia/commons/f/fd/Cristiano_Ronaldo_after_2018_UEFA_Champions_League_Final.jpg',
+        //         'Ronaldo',
+        //         28,
+        //         'Portugese',
+        //         'CF'
+        //     ),
+        //     new PlayerModel(
+        //         'https://upload.wikimedia.org/wikipedia/commons/f/fd/Cristiano_Ronaldo_after_2018_UEFA_Champions_League_Final.jpg',
+        //         'Ronaldo',
+        //         28,
+        //         'Portugese',
+        //         'CF'
+        //     ),
+        //     new PlayerModel(
+        //         'https://upload.wikimedia.org/wikipedia/commons/f/fd/Cristiano_Ronaldo_after_2018_UEFA_Champions_League_Final.jpg',
+        //         'Ronaldo',
+        //         28,
+        //         'Portugese',
+        //         'CF'
+        //     )]
+        //     ),
+        // new TeamModel(
+        //     'https://upload.wikimedia.org/wikipedia/commons/e/e8/Juventus_Logo_2017.png',
+        //     'Juventus FC',
+        //     'Serie A TIM',
+        //     'Massimiliano Allegri',
+        //     'https://upload.wikimedia.org/wikipedia/commons/d/db/Inside_Juventus_Stadium.jpg',
+        //     4,
+        //     0,
+        //     1,
+        //     [new PlayerModel(
+        //         'https://upload.wikimedia.org/wikipedia/commons/c/c1/Lionel_Messi_20180626.jpg',
+        //         'Messi',
+        //         30,
+        //         'Argentinean',
+        //         'CMF'
+        //     )]
+        //     ),
+        // new TeamModel(
+        //     'https://upload.wikimedia.org/wikipedia/commons/d/d2/Fc_barca.png',
+        //     'Barcelona FC',
+        //     'BBVA',
+        //     'Ernesto Valverde',
+        //     'https://upload.wikimedia.org/wikipedia/commons/8/88/Barcelona_vs_Arsenal_Teams_line_up.jpg',
+        //     5,
+        //     0,
+        //     0,
+        //     [new PlayerModel(
+        //         'https://upload.wikimedia.org/wikipedia/commons/c/c1/Lionel_Messi_20180626.jpg',
+        //         'Messi',
+        //         30,
+        //         'Argentinean',
+        //         'CMF'
+        //     )]
+        // )
     ];
+
+    initiateTeams(teams: TeamModel[]) {
+        this.teams = teams;
+        this.teamArrayChanged.next(this.teams.slice());
+    }
 
     getTeams(): TeamModel[] {
         return this.teams.slice();

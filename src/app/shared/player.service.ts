@@ -9,22 +9,27 @@ export class PlayerService {
 
     constructor(private teamService: TeamService) { }
 
-    private players: PlayerModel[] = [
-        new PlayerModel(
-            'https://upload.wikimedia.org/wikipedia/commons/c/c1/Lionel_Messi_20180626.jpg',
-            'Messi',
-            30,
-            'Argentinean',
-            'CMF',
-        ),
-        new PlayerModel(
-            'https://upload.wikimedia.org/wikipedia/commons/f/fd/Cristiano_Ronaldo_after_2018_UEFA_Champions_League_Final.jpg',
-            'Christiano Ronaldo',
-            28,
-            'Portugese',
-            'STR',
-        ),
+    public players: PlayerModel[] = [
+        // new PlayerModel(
+        //     'https://upload.wikimedia.org/wikipedia/commons/c/c1/Lionel_Messi_20180626.jpg',
+        //     'Messi',
+        //     30,
+        //     'Argentinean',
+        //     'CMF',
+        // ),
+        // new PlayerModel(
+        //     'https://upload.wikimedia.org/wikipedia/commons/f/fd/Cristiano_Ronaldo_after_2018_UEFA_Champions_League_Final.jpg',
+        //     'Christiano Ronaldo',
+        //     28,
+        //     'Portugese',
+        //     'STR',
+        // ),
     ];
+
+    initiatePlayers(players) {
+        this.players = players;
+        this.playerArrayChanged.next(this.players.slice());
+    }
 
     getPlayers() {
         return this.players.slice();

@@ -11,16 +11,16 @@ export class ServerService {
 
     storeTeams(teams: TeamModel[]) {
         const headers = new Headers({'Content-Type': 'application/json'});
-        return this.http.put('https://ng-soccerfy.firebaseio.com/data.json', teams, {headers: headers});
+        return this.http.put('https://ng-soccerfy.firebaseio.com/teams.json', teams, {headers: headers});
     }
 
     storePlayers(teams: PlayerModel[]) {
         const headers = new Headers({'Content-Type': 'application/json'});
-        return this.http.put('https://ng-soccerfy.firebaseio.com/data2.json', teams, {headers: headers});
+        return this.http.put('https://ng-soccerfy.firebaseio.com/players.json', teams, {headers: headers});
     }
 
     getTeams() {
-        return this.http.get('https://ng-soccerfy.firebaseio.com/data.json')
+        return this.http.get('https://ng-soccerfy.firebaseio.com/teams.json')
             .pipe(
                 map((response: Response) => {
                     const data = response.json();
@@ -33,7 +33,7 @@ export class ServerService {
     }
 
     getPlayers() {
-        return this.http.get('https://ng-soccerfy.firebaseio.com/data2.json')
+        return this.http.get('https://ng-soccerfy.firebaseio.com/players.json')
         .pipe(
             map((response: Response) => {
                     const data2 = response.json();
